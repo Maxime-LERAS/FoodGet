@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ToolBar?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -15,7 +12,7 @@
    <children>
       <ToolBar>
          <items>
-            <Button mnemonicParsing="false" text="Stats" textAlignment="CENTER" />
+            <Button fx:id="stats" mnemonicParsing="false" text="Stats" textAlignment="CENTER" />
             <Button defaultButton="true" mnemonicParsing="false" text="Mes Listes" textAlignment="CENTER" />
             <Button mnemonicParsing="false" text="Alertes" textAlignment="CENTER" />
             <Button mnemonicParsing="false" text="Mon Compte" textAlignment="CENTER" />
@@ -29,17 +26,12 @@
                   <Font size="26.0" />
                </font>
             </Text>
-            <TableView fx:id = "productTable" layoutX="4.0" layoutY="-2.0">
-              <columns>
-                <TableColumn fx:id="productName" prefWidth="160.0" text="Produit" />
-                <TableColumn fx:id="productPrice" prefWidth="117.0" text="Prix (€)" />
-              </columns>
-            </TableView>
+            <ListView fx:id="listBasket" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="278.0" />
          </children>
       </AnchorPane>
       <AnchorPane>
          <children>
-            <Button fx:id = "addDepense" layoutX="126.0" layoutY="6.0" mnemonicParsing="false" text="Ajouter une dépense">
+            <Button fx:id="addDepense" layoutX="126.0" layoutY="6.0" mnemonicParsing="false" text="Ajouter une dépense">
                <font>
                   <Font size="14.0" />
                </font>

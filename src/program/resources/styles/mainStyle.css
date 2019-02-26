@@ -1,0 +1,7 @@
+#productExpanditure {
+    -fx-font: 16px "Serif";
+    -fx-text-fill: rgb(49, 89, 23);
+    -fx-border-color: rgb(49, 89, 23);
+    -fx-border-radius: 40;
+    -fx-padding: 3 6 6 6;
+}

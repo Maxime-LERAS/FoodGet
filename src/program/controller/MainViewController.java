@@ -1,44 +1,45 @@
 package program.controller;
-import program.*;
+
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.ListView;
+import javafx.stage.Stage;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 import program.model.Model;
+import program.model.ProductModel;
+import program.views.StatsView;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+
 
 public class MainViewController {
 
-    @FXML
-    private TableView<Model> productTable;
+    private Stage stage;
+
+    private ObservableList<ProductModel> products;
+
 
     @FXML
-    private TableColumn<Model, String> productName;
-
-    @FXML
-    private TableColumn<Model, String> productPrice;
+    private ListView listBasket;
 
     @FXML
     private Button addDepense;
 
     @FXML
-    private Button statistiques;
+    private Button stats;
 
-
-    @FXML
-    public void initialize() {
-
-        productName.setCellValueFactory(new PropertyValueFactory<>("productName"));
-        productPrice.setCellValueFactory(new PropertyValueFactory<>("productPrice"));
-        productTable.setItems(productModel);
+    public MainViewController(Stage stage) {
+        this.stage = stage;
+        products = FXCollections.observableArrayList();
     }
+
 
     private ObservableList<Model> productModel = FXCollections.observableArrayList(
             new Model("Legumes", "15"),
@@ -46,15 +47,42 @@ public class MainViewController {
     );
 
     public void init() {
-        addDepense.setOnAction(event -> initialize());
-        //statistiques.setOnAction(event -> openStats());
+        ProductModel p = new ProductModel("Bananes", 15.00);
+        products.add(p);
+        listBasket.setItems(products);
+        listBasket.setCellFactory(listview -> new ListViewProductCell());
+        addDepense.setOnAction(event -> addDepenseMethod());
+        stats.setOnAction(event -> openStats());
     }
 
+
     private void openStats() {
+        FXMLLoader loader = new FXMLLoader();
+
+        //create a controller
+        StatsController controller = new StatsController(this.stage);
+
+        //attach controller
+        loader.setController(controller);
+
+        try {
+            Parent root = loader.load(getClass().getResourceAsStream(StatsView.XML_FILE));
+            //initialize the controller
+            controller.init();
+            //create the view
+            this.stage.setScene(new Scene(root, StatsView.WIDTH, StatsView.HEIGHT));
+            this.stage.setTitle(StatsView.LABEL);
+
+            //show the view
+            this.stage.show();
+        } catch (IOException E) {
+            E.printStackTrace();
+        }
 
     }
 
     public void addDepenseMethod() {
-        productTable.setItems(productModel);
+        ProductModel p2 = new ProductModel("Chips", 119.50);
+        products.add(p2);
     }
 }

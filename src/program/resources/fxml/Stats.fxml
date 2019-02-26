@@ -27,7 +27,7 @@
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="150.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../FoodJET.png" />
+                  <Image url="/program/resources/images/FoodJET.png" />
                </image>
             </ImageView>
          </children>
@@ -47,7 +47,7 @@
                 <NumberAxis side="LEFT" />
               </yAxis>
             </StackedBarChart>
-            <ChoiceBox layoutX="228.0" layoutY="11.0" prefWidth="150.0" />
+            <ChoiceBox fx:id="durationBox" layoutX="228.0" layoutY="11.0" prefWidth="150.0" />
          </children>
     </AnchorPane>
   </children>
