@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="Mon_Compte" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="537.0" prefWidth="724.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <ToolBar prefHeight="40.0" prefWidth="200.0">
+              <items>
+                <Button fx:id="Mon_Compte_Stats" mnemonicParsing="false" text="Stats" />
+                  <Button fx:id="Mon_Compte_Panier" mnemonicParsing="false" text="Panier" />
+                  <Button fx:id="Mon_Compte_Alertes" mnemonicParsing="false" text="Alertes" />
+                  <Button fx:id="Mon_Compte_Mon_Compte" mnemonicParsing="false" text="Mon Compte" />
+              </items>
+            </ToolBar>
+            <HBox alignment="CENTER" prefHeight="167.0" prefWidth="724.0">
+               <children>
+                  <ImageView fitHeight="174.0" fitWidth="288.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Polytech/SI3/S6/IHM/FoodGet/src/resources/FoodJET.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </top>
+   <left>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+   </right>
+   <bottom>
+      <VBox prefHeight="68.0" prefWidth="724.0" BorderPane.alignment="CENTER" />
+   </bottom>
+   <center>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER">
+               <children>
+                  <Hyperlink text="Modifier mon adresse mail" textAlignment="CENTER">
+                     <font>
+                        <Font size="20.0" />
+                     </font></Hyperlink>
+                  <Hyperlink text="Modifier mon mot de passe" textAlignment="CENTER">
+                     <font>
+                        <Font size="20.0" />
+                     </font></Hyperlink>
+                  <Hyperlink text="Modifier mon prénom" textAlignment="CENTER">
+                     <font>
+                        <Font size="20.0" />
+                     </font></Hyperlink>
+                  <Hyperlink text="Accueil">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Hyperlink>
+               </children>
+            </VBox>
+            <Button mnemonicParsing="false" text="Déconnexion" translateY="20.0" />
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
