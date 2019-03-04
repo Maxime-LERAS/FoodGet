@@ -2,7 +2,7 @@
 Projet IHM 2019 
 
 # Scénarios : 
-Scénario 1 : Julie décidée comme jamais !
+# Scénario 1 : Julie décidée comme jamais !
 
 Julie en a marre de toujours être au rouge à la fin du mois, et a décidé d'utiliser notre application dont elle a entendu parler auparavant afin de pouvoir gérer son budget étudiant.
 
