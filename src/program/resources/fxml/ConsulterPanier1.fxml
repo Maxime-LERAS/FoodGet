@@ -27,7 +27,7 @@
                <children>
                   <ImageView fx:id="logo" fitHeight="132.0" fitWidth="252.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../FoodJET.png" />
+                        <Image url="/program/resources/images/FoodJET.png" />
                      </image>
                   </ImageView>
                </children>

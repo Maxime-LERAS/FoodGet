@@ -18,10 +18,10 @@
          <children>
             <ToolBar fx:id="toolbar">
                <items>
-                  <Button mnemonicParsing="false" text="Stats" textAlignment="CENTER" />
-                  <Button mnemonicParsing="false" text="Mes Listes" textAlignment="CENTER" />
-                  <Button mnemonicParsing="false" text="Alertes" textAlignment="CENTER" />
-                  <Button mnemonicParsing="false" text="Mon Compte" textAlignment="CENTER" />
+                  <Button id="main_menu_stats" fx:id="main_menu_stats" mnemonicParsing="false" text="Stats" textAlignment="CENTER" />
+                  <Button id="main_menu_lists" fx:id="main_menu_lists" mnemonicParsing="false" text="Mes Listes" textAlignment="CENTER" />
+                  <Button id="main_menu_alerts" fx:id="main_menu_alerts" mnemonicParsing="false" text="Alertes" textAlignment="CENTER" />
+                  <Button id="main_menu_mon_compte" fx:id="main_menu_mon_compte" mnemonicParsing="false" text="Mon Compte" textAlignment="CENTER" />
                </items>
             </ToolBar>
             <HBox fx:id="logoBox" alignment="CENTER">

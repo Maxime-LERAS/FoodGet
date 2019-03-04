@@ -15,8 +15,6 @@ import program.model.ProductModel;
 import program.views.StatsView;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class MainViewController {
@@ -60,15 +58,15 @@ public class MainViewController {
         FXMLLoader loader = new FXMLLoader();
 
         //create a controller
-        StatsController controller = new StatsController(this.stage);
+        //StatsController controller = new StatsController(this.stage);
 
         //attach controller
-        loader.setController(controller);
+        //loader.setController(controller);
 
         try {
             Parent root = loader.load(getClass().getResourceAsStream(StatsView.XML_FILE));
             //initialize the controller
-            controller.init();
+            //controller.init();
             //create the view
             this.stage.setScene(new Scene(root, StatsView.WIDTH, StatsView.HEIGHT));
             this.stage.setTitle(StatsView.LABEL);
