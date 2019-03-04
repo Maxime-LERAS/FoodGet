@@ -1,7 +1,7 @@
 # FoodGet
 Projet IHM 2019 
 
-#Scénarios : 
+# Scénarios : 
 Scénario 1 : Julie décidée comme jamais !
 Julie en a marre de toujours être au rouge à la fin du mois, et a décidé d'utiliser notre application dont elle a entendu parler auparavant afin de pouvoir gérer son budget étudiant.
 Julie admet qu'elle dépense trop d'argent dans des banalités, et a décidé de remédier à tout celà, en joignant l'utile à l'agréable : Manger sainement et au moindre coup.
