@@ -46,6 +46,16 @@ public class MainMenuController {
                 .replace("%money%", "" + user.getMoney()));
         main_menu_stats.setOnAction(event -> openStats());
         main_menu_lists.setOnAction(event -> openLists());
+        main_menu_alerts.setOnAction(event -> openAlerts());
+        main_menu_mon_compte.setOnAction(event -> openAccount());
+    }
+
+    private void openAccount() {
+        cr.openAccount();
+    }
+
+    private void openAlerts() {
+        cr.openAlerts();
     }
 
     private void openLists() {
