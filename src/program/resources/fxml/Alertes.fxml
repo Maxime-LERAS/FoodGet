@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -16,10 +17,10 @@
          <children>
             <ToolBar prefHeight="40.0" prefWidth="200.0">
               <items>
-                <Button fx:id="Mon_Compte_Stats" mnemonicParsing="false" text="Stats" />
-                  <Button fx:id="Mon_Compte_Panier" mnemonicParsing="false" text="Panier" />
-                  <Button fx:id="Mon_Compte_Alertes" mnemonicParsing="false" text="Alertes" />
-                  <Button fx:id="Mon_Compte_Mon_Compte" mnemonicParsing="false" text="Mon Compte" />
+                <Button id="Alertes_Stats" fx:id="Alertes_Stats" mnemonicParsing="false" text="Stats" />
+                  <Button id="Alertes_Panier" fx:id="Alertes_Panier" mnemonicParsing="false" text="Panier" />
+                  <Button id="Alertes_Alertes" fx:id="Alertes_Alertes" mnemonicParsing="false" text="Alertes" />
+                  <Button id="Alertes_Mon_Compte" fx:id="Alertes_Mon_Compte" mnemonicParsing="false" text="Mon Compte" />
               </items>
             </ToolBar>
             <HBox alignment="CENTER" prefHeight="167.0" prefWidth="724.0">
@@ -44,30 +45,19 @@
       <VBox prefHeight="68.0" prefWidth="724.0" BorderPane.alignment="CENTER" />
    </bottom>
    <center>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" BorderPane.alignment="CENTER">
          <children>
-            <VBox alignment="CENTER">
-               <children>
-                  <Hyperlink text="Modifier mon adresse mail" textAlignment="CENTER">
-                     <font>
-                        <Font size="20.0" />
-                     </font></Hyperlink>
-                  <Hyperlink text="Modifier mon mot de passe" textAlignment="CENTER">
-                     <font>
-                        <Font size="20.0" />
-                     </font></Hyperlink>
-                  <Hyperlink text="Modifier mon prénom" textAlignment="CENTER">
-                     <font>
-                        <Font size="20.0" />
-                     </font></Hyperlink>
-                  <Hyperlink text="Accueil">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Hyperlink>
-               </children>
-            </VBox>
-            <Button mnemonicParsing="false" text="Déconnexion" translateY="20.0" />
+            <ListView id="Alertes_List" fx:id="Alertes_List" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="200.0" />
+            <Hyperlink id="Alertes_Retour" fx:id="Alertes_Retour" text="Retour" textAlignment="CENTER" translateY="33.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink id="Alertes_Accueil" fx:id="Alertes_Accueil" alignment="CENTER" text="Accueil" translateY="35.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Hyperlink>
          </children>
       </VBox>
    </center>

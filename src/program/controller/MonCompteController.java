@@ -2,23 +2,29 @@ package program.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import program.model.CommonPageCreator;
 import program.model.FoodGetUser;
 
-public class ListofListsController {
+import java.awt.*;
+
+public class MonCompteController {
+    @FXML
+    private Text spentMoney;
 
     @FXML
-    private Button Panier_Stats;
+    private Button Mon_Compte_Stats;
 
     @FXML
-    private Button Panier_Liste;
+    private Button Mon_Compte_Panier;
 
     @FXML
-    private Button Panier_Alertes;
+    private Button Mon_Compte_Alertes;
 
     @FXML
-    private Button Panier_MonCompte;
+    private Button Mon_Compte_Mon_Compte;
 
 
     private Stage stage;
@@ -26,7 +32,7 @@ public class ListofListsController {
     private FoodGetUser user;
     private CommonPageCreator cr;
 
-    public ListofListsController(Stage stage, FoodGetUser user) {
+    public MonCompteController(Stage stage, FoodGetUser user) {
         this.stage = stage;
         this.user = user;
         cr = new CommonPageCreator(stage,user);
@@ -34,10 +40,10 @@ public class ListofListsController {
 
     public void init() {
 
-        Panier_Stats.setOnAction(event -> openStats());
-        Panier_Liste.setOnAction(event -> openLists());
-        Panier_Alertes.setOnAction(event -> openAlertes());
-        Panier_MonCompte.setOnAction(event -> openMonCompte());
+        Mon_Compte_Stats.setOnAction(event -> openStats());
+        Mon_Compte_Panier.setOnAction(event -> openLists());
+        Mon_Compte_Alertes.setOnAction(event -> openAlertes());
+        Mon_Compte_Mon_Compte.setOnAction(event -> openMonCompte());
     }
 
     private void openLists() {
@@ -54,6 +60,7 @@ public class ListofListsController {
     private void openMonCompte(){
         cr.openMonCompte();
     }
+
 
 
 }

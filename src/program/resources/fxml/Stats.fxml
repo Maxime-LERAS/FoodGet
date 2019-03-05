@@ -15,16 +15,16 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="mainMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="Stats" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <VBox fx:id="header" BorderPane.alignment="CENTER">
          <children>
-            <ToolBar fx:id="toolbar">
+            <ToolBar fx:id="stats_Toolbar" prefHeight="40.0" prefWidth="200.0">
                <items>
-                  <Button mnemonicParsing="false" text="Stats" textAlignment="CENTER" />
-                  <Button mnemonicParsing="false" text="Mes Listes" textAlignment="CENTER" />
-                  <Button mnemonicParsing="false" text="Alertes" textAlignment="CENTER" />
-                  <Button mnemonicParsing="false" text="Mon Compte" textAlignment="CENTER" />
+                  <Button id="Mon_Compte_Stats" fx:id="stats_Stats" mnemonicParsing="false" text="Stats" />
+                  <Button id="Mon_Compte_Panier" fx:id="stats_Panier" mnemonicParsing="false" text="Panier" />
+                  <Button id="Mon_Compte_Alertes" fx:id="stats_Alertes" mnemonicParsing="false" text="Alertes" />
+                  <Button id="Mon_Compte_Mon_Compte" fx:id="stats_Mon_Compte" mnemonicParsing="false" text="Mon Compte" />
                </items>
             </ToolBar>
             <HBox fx:id="logoBox" alignment="CENTER">
@@ -40,23 +40,23 @@
       </VBox>
    </top>
    <center>
-      <VBox fx:id="tableBox" BorderPane.alignment="CENTER">
+      <VBox fx:id="statsBox" BorderPane.alignment="CENTER">
          <children>
-            <HBox>
+            <HBox alignment="CENTER">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Choisissez la durée ">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Text>
-                  <ChoiceBox id="durationBox" fx:id="durationBox" prefWidth="150.0">
+                  <ChoiceBox fx:id="dateBox" prefWidth="150.0">
                      <HBox.margin>
                         <Insets top="5.0" />
                      </HBox.margin>
                   </ChoiceBox>
                </children>
             </HBox>
-            <StackedBarChart>
+            <StackedBarChart fx:id="statsChart">
                <xAxis>
                   <CategoryAxis side="BOTTOM" />
                </xAxis>

@@ -4,9 +4,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import program.controller.AlertesController;
 import program.controller.ListofListsController;
+import program.controller.MonCompteController;
 import program.controller.StatsController;
+import program.views.AlertesView;
 import program.views.ListOfListsView;
+import program.views.MonCompteView;
 import program.views.StatsView;
 
 import java.io.IOException;
@@ -66,6 +70,54 @@ public class CommonPageCreator {
             //show the view
             this.stage.show();
         } catch (IOException E) {
+            E.printStackTrace();
+        }
+    }
+
+    public void openALerts(){
+        FXMLLoader loader = new FXMLLoader();
+
+        //create a controller
+        AlertesController controller = new AlertesController(this.stage, this.user);
+
+        //attach controller
+        loader.setController(controller);
+
+        try{
+            Parent root = loader.load(getClass().getResourceAsStream(AlertesView.XML_FILE));
+            //initialize the controller
+            controller.init();
+            //create the view
+            this.stage.setScene(new Scene(root, AlertesView.WIDTH, AlertesView.HEIGHT));
+            this.stage.setTitle(AlertesView.LABEL);
+            //show the view
+            this.stage.show();
+
+        } catch (IOException E){
+            E.printStackTrace();
+        }
+    }
+
+    public void openMonCompte(){
+        FXMLLoader loader = new FXMLLoader();
+
+        //create a controller
+        MonCompteController controller = new MonCompteController(this.stage, this.user);
+
+        //attach controller
+        loader.setController(controller);
+
+        try{
+            Parent root = loader.load(getClass().getResourceAsStream(MonCompteView.XML_FILE));
+            //initialize the controller
+            controller.init();
+            //create the view
+            this.stage.setScene(new Scene(root, MonCompteView.WIDTH, MonCompteView.HEIGHT));
+            this.stage.setTitle(MonCompteView.LABEL);
+            //show the view
+            this.stage.show();
+
+        } catch (IOException E){
             E.printStackTrace();
         }
     }
