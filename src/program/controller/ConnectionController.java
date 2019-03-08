@@ -1,5 +1,6 @@
 package program.controller;
 
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,6 +9,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import program.model.ConnectionCheckerModel;
 import program.model.FoodGetUser;
@@ -39,6 +42,12 @@ public class ConnectionController {
     public void init(){
         connectionButton.setOnAction(event -> checkConnection());
         badCredentials.setText("");
+        this.stage.getScene().setOnKeyPressed(keyEvent -> {
+            if (keyEvent.getCode() == KeyCode.ENTER) {
+                checkConnection();
+                keyEvent.consume();
+            }
+        });
     }
 
     private void checkConnection() {
@@ -59,6 +68,8 @@ public class ConnectionController {
         passwordBox.clear();
         badCredentials.setText("Mauvaise combinaison Utilisateur / Mot de passe");
     }
+
+
 
     private void openMainMenu(FoodGetUser user) {
         FXMLLoader loader = new FXMLLoader();

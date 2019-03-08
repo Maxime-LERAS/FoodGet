@@ -53,8 +53,8 @@
                         <RowConstraints maxHeight="77.0" minHeight="10.0" prefHeight="43.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <PasswordField id="passwordBox" fx:id="passwordBox" promptText="Mot de passe" GridPane.rowIndex="2" />
                         <TextField id="usernameBox" fx:id="usernameBox" promptText="Nom d'utilisateur" GridPane.rowIndex="1" />
+                        <PasswordField id="passwordBox" fx:id="passwordBox" promptText="Mot de passe" GridPane.rowIndex="2" />
                      </children>
                      <columnConstraints>
                         <ColumnConstraints />

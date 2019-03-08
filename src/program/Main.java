@@ -29,9 +29,11 @@ public class Main extends Application {
             Parent root = loader.load(getClass().getResourceAsStream(ConnectionView.XML_FILE));
             root.getStylesheets().add(ConnectionView.CSS_FILE);
             //initialize the controller
-            controller.init();
+
             //create the view
+
             primaryStage.setScene(new Scene(root, ConnectionView.WIDTH, ConnectionView.HEIGHT));
+            controller.init();
             primaryStage.setTitle(ConnectionView.LABEL);
 
             //show the view
