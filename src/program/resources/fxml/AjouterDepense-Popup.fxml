@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -25,7 +26,7 @@
                   </Text>
                </children>
             </HBox>
-            <TextField fx:id="productField" />
+            <TextField fx:id="productField" alignment="CENTER" promptText="Nom du produit" />
             <HBox fx:id="priceBox" alignment="CENTER">
                <children>
                   <Text fx:id="price" strokeType="OUTSIDE" strokeWidth="0.0" text="Prix (en €)" wrappingWidth="184.529296875">
@@ -35,8 +36,9 @@
                   </Text>
                </children>
             </HBox>
-            <TextField fx:id="priceField" />
-            <HBox fx:id="buttonsBox" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <TextField fx:id="priceField" alignment="CENTER" promptText="Prix" />
+            <Label fx:id="addFailed" alignment="CENTER" maxWidth="1.7976931348623157E308" text="failed" />
+            <HBox fx:id="buttonsBox" alignment="CENTER" prefHeight="83.0" prefWidth="200.0">
                <children>
                   <Button fx:id="validate" mnemonicParsing="false" text="Valider">
                      <font>

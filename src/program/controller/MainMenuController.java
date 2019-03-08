@@ -63,9 +63,9 @@ public class MainMenuController {
     }
 
     public void init() {
-        ProductModel p = new ProductModel("Bananes", 15.00);
-        products.add(p);
-        this.user.addProduct(p);
+        //ProductModel p = new ProductModel("Bananes", 15.00);
+        //this.user.addProduct(p);
+        products.addAll(user.getHistory());
         historyList.setItems(products);
         historyList.setCellFactory(listview -> new ListViewProductCell());
         addDepense.setOnAction(event -> addDepenseMethod());
@@ -78,11 +78,17 @@ public class MainMenuController {
         main_menu_mon_compte.setOnAction(event -> openMonCompte());
     }
 
+    public void addProductToList(String productName, double productPrice){
+        ProductModel p = new ProductModel(productName,productPrice);
+        user.addProduct(p);
+        products.add(p);
+    }
+
     private void addDepenseMethod() {
         FXMLLoader loader = new FXMLLoader();
 
         //create a controller
-        AddDepenseController controller = new AddDepenseController(this.stage, this.user);
+        AddDepenseController controller = new AddDepenseController(this, this.user);
 
         //attach controller
         loader.setController(controller);
@@ -90,10 +96,12 @@ public class MainMenuController {
         try {
             Parent root = loader.load(getClass().getResourceAsStream(AddDepenseView.XML_FILE));
             //initialize the controller
-            controller.init();
+
             Stage popup = new Stage();
+
             //create the view
             popup.setScene(new Scene(root, AddDepenseView.WIDTH, AddDepenseView.HEIGHT));
+            controller.init(popup);
             popup.setTitle(AddDepenseView.LABEL);
             //show the view
             popup.show();

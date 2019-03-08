@@ -33,6 +33,10 @@ public class FoodGetUser {
         this.history.add(p);
     }
 
+    public List<ProductModel> getHistory(){
+        return history;
+    }
+
     public double getMoney() {
         double sum = 0;
         for(ProductModel p :history){
