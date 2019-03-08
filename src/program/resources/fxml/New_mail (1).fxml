@@ -29,7 +29,7 @@
                <children>
                   <ImageView fitHeight="174.0" fitWidth="288.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../FoodGet/src/resources/FoodJET.png" />
+                        <Image url="/program/resources/images/FoodJET.png" />
                      </image>
                   </ImageView>
                </children>
