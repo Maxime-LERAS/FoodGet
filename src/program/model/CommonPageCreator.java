@@ -16,6 +16,10 @@ public class CommonPageCreator {
 
     private FoodGetUser user;
 
+    public CommonPageCreator(Stage stage) {
+        this.stage = stage;
+    }
+
     public CommonPageCreator(Stage stage, FoodGetUser user) {
         this.stage = stage;
         this.user = user;
@@ -144,4 +148,87 @@ public class CommonPageCreator {
             e.printStackTrace();
         }
     }
+
+    public  void openConnection() {
+        FXMLLoader loader = new FXMLLoader();
+
+        //create a controller
+        ConnectionController controller = new ConnectionController(this.stage);
+
+        //attach controller
+        loader.setController(controller);
+
+        //attach XML file
+        try{
+            Parent root = loader.load(getClass().getResourceAsStream(ConnectionView.XML_FILE));
+            root.getStylesheets().add(ConnectionView.CSS_FILE);
+            //initialize the controller
+
+            //create the view
+
+            this.stage.setScene(new Scene(root, ConnectionView.WIDTH, ConnectionView.HEIGHT));
+            controller.init();
+            this.stage.setTitle(ConnectionView.LABEL);
+
+            //show the view
+            this.stage.show();
+        } catch (IOException E){
+            E.printStackTrace();
+        }
+    }
+
+    public  void openSignUp() {
+        FXMLLoader loader = new FXMLLoader();
+
+        //create a controller
+        InscriptionController controller = new InscriptionController(this.stage);
+
+        //attach controller
+        loader.setController(controller);
+
+        //attach XML file
+        try {
+            Parent root = loader.load(getClass().getResourceAsStream(InscriptionView.XML_FILE));
+            root.getStylesheets().add(InscriptionView.CSS_FILE);
+            //initialize the controller
+
+            //create the view
+
+            this.stage.setScene(new Scene(root, InscriptionView.WIDTH, InscriptionView.HEIGHT));
+            controller.init();
+            this.stage.setTitle(InscriptionView.LABEL);
+
+            //show the view
+            this.stage.show();
+        } catch (IOException E) {
+            E.printStackTrace();
+        }
+    }
+
+    public  void openForgotPass() {
+        FXMLLoader loader = new FXMLLoader();
+
+        //create a controller
+        MotDePasseOublierController motDePasseOublierController = new MotDePasseOublierController(this.stage);
+
+        //attach controller
+        loader.setController(motDePasseOublierController);
+
+        //attach XML file
+        try {
+            Parent root = loader.load(getClass().getResourceAsStream(MDPOublierView.XML_FILE));
+            root.getStylesheets().add(MDPOublierView.CSS_FILE);
+
+            this.stage.setScene(new Scene(root, MDPOublierView.WIDTH, MDPOublierView.HEIGHT));
+            motDePasseOublierController.init();
+            this.stage.setTitle(MDPOublierView.LABEL);
+
+            //show the view
+            this.stage.show();
+        } catch (IOException E) {
+            E.printStackTrace();
+        }
+    }
+
+
 }
