@@ -32,6 +32,7 @@ public class CommonPageCreator {
 
         try {
             Parent root = loader.load(getClass().getResourceAsStream(StatsView.XML_FILE));
+            root.getStylesheets().add(StatsView.CSS_FILE);
             //initialize the controller
             controller.init();
             //create the view
@@ -56,6 +57,7 @@ public class CommonPageCreator {
 
         try {
             Parent root = loader.load(getClass().getResourceAsStream(ListOfListsView.XML_FILE));
+            root.getStylesheets().add(ListOfListsView.CSS_FILE);
             //initialize the controller
             controller.init();
             //create the view
@@ -80,6 +82,7 @@ public class CommonPageCreator {
 
         try{
             Parent root = loader.load(getClass().getResourceAsStream(AlertesView.XML_FILE));
+            root.getStylesheets().add(AlertesView.CSS_FILE);
             //initialize the controller
             controller.init();
             //create the view
@@ -104,6 +107,7 @@ public class CommonPageCreator {
 
         try{
             Parent root = loader.load(getClass().getResourceAsStream(MonCompteView.XML_FILE));
+            root.getStylesheets().add(MonCompteView.CSS_FILE);
             //initialize the controller
             controller.init();
             //create the view
@@ -128,6 +132,7 @@ public class CommonPageCreator {
 
         try {
             Parent root = loader.load(getClass().getResourceAsStream(MainView.XML_FILE));
+            root.getStylesheets().add(MainView.CSS_FILE);
             //initialize the controller
             controller.init();
             //create the view
