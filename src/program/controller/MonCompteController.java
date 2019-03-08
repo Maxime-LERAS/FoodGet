@@ -29,6 +29,9 @@ public class MonCompteController {
     @FXML
     private Button Mon_Compte_Accueil;
 
+    @FXML
+    private Button deconnect;
+
 
     private Stage stage;
 
@@ -48,6 +51,7 @@ public class MonCompteController {
         Mon_Compte_Panier.setOnAction(event -> openLists());
         Mon_Compte_Alertes.setOnAction(event -> openAlertes());
         Mon_Compte_Mon_Compte.setOnAction(event -> openMonCompte());
+        deconnect.setOnAction(event -> cr.openConnection());
     }
 
 
