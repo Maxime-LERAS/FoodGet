@@ -7,12 +7,15 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="mainMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="mainMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <VBox fx:id="header" BorderPane.alignment="CENTER">
          <children>
@@ -58,7 +61,19 @@
                   </Text>
                </children>
             </HBox>
-            <ListView id="historyList" fx:id="historyList" minHeight="-Infinity" prefHeight="140.0" />
+            <GridPane alignment="CENTER">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="127.0" minWidth="0.0" prefWidth="27.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="400.0" minWidth="400.0" prefWidth="400.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="158.0" minWidth="0.0" prefWidth="24.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints />
+               </rowConstraints>
+               <children>
+                  <ListView id="historyList" fx:id="historyList" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+               </children>
+            </GridPane>
             <HBox fx:id="buttonsBox" alignment="CENTER">
                <children>
                   <Button fx:id="seeMore" mnemonicParsing="false" text="Voir Plus">

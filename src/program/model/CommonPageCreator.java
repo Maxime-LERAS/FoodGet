@@ -9,6 +9,7 @@ import program.views.*;
 
 import java.io.IOException;
 
+@SuppressWarnings("Duplicates")
 public class CommonPageCreator {
 
     private Stage stage;

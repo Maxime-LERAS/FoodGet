@@ -1,6 +1,5 @@
 package program.controller;
 
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,7 +9,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import program.model.ConnectionCheckerModel;
 import program.model.FoodGetUser;
@@ -18,6 +16,7 @@ import program.views.MainView;
 
 import java.io.IOException;
 
+@SuppressWarnings("Duplicates")
 public class ConnectionController {
 
     private Stage stage;
@@ -82,6 +81,7 @@ public class ConnectionController {
 
         try {
             Parent root = loader.load(getClass().getResourceAsStream(MainView.XML_FILE));
+            root.getStylesheets().add(MainView.CSS_FILE);
             //initialize the controller
             controller.init();
             //create the view

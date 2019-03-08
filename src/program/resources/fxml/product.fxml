@@ -5,10 +5,11 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane id="productExpanditure" fx:id="gridProduct" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="89.0" prefWidth="250.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171">
+<GridPane id="productExpanditure" fx:id="gridProduct" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="385.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="285.0" minWidth="10.0" prefWidth="143.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="302.0" minWidth="10.0" prefWidth="61.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="302.0" minWidth="10.0" prefWidth="181.0" />
   </columnConstraints>
   <rowConstraints>
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -16,5 +17,6 @@
    <children>
       <Label fx:id="prodName" text="ProdName" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
       <Label fx:id="prodPrice" text="prodPrice" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+      <Label fx:id="prodDate" text="prodDate" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
    </children>
 </GridPane>

@@ -9,9 +9,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="ajouterDepense" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="ajouterDepense" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <top>
-      <HBox fx:id="logoBox" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <HBox fx:id="logoBox" alignment="CENTER" BorderPane.alignment="CENTER" />
    </top>
    <center>
       <VBox fx:id="addDepenseBox" alignment="CENTER" BorderPane.alignment="CENTER">
@@ -57,9 +57,9 @@
       </VBox>
    </center>
    <left>
-      <VBox prefHeight="268.0" prefWidth="181.0" BorderPane.alignment="CENTER" />
+      <VBox prefWidth="50.0" BorderPane.alignment="CENTER" />
    </left>
    <right>
-      <VBox prefHeight="268.0" prefWidth="203.0" BorderPane.alignment="CENTER" />
+      <VBox prefWidth="50.0" BorderPane.alignment="CENTER" />
    </right>
 </BorderPane>

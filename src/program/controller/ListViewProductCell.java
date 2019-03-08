@@ -10,6 +10,7 @@ import program.model.ProductModel;
 import java.io.IOException;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.util.Date;
 
 public class ListViewProductCell extends ListCell<ProductModel> {
 
@@ -21,6 +22,9 @@ public class ListViewProductCell extends ListCell<ProductModel> {
 
     @FXML
     private Label prodPrice;
+
+    @FXML
+    private Label prodDate;
 
 
     public ListViewProductCell() {
@@ -50,5 +54,6 @@ public class ListViewProductCell extends ListCell<ProductModel> {
         String pattern = "#.##";
         DecimalFormat df = new DecimalFormat(pattern);
         prodPrice.setText(df.format(product.getProductPrice()) +"€");
+        prodDate.setText(new Date().toLocaleString());
     }
 }
