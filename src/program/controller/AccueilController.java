@@ -6,29 +6,30 @@ import javafx.stage.Stage;
 import program.model.CommonPageCreator;
 import program.model.FoodGetUser;
 
-public class ListofListsController {
+public class AccueilController {
 
     @FXML
-    private Button Panier_Stats;
+    private Button main_menu_accueil;
 
     @FXML
-    private Button Panier_Liste;
+    private Button main_menu_stats;
 
     @FXML
-    private Button Panier_Alertes;
+    private Button main_menu_lists;
 
     @FXML
-    private Button Panier_MonCompte;
+    private Button main_menu_alerts;
 
     @FXML
-    private Button Panier_Accueil;
+    private Button main_menu_mon_compte;
+
 
     private Stage stage;
 
     private FoodGetUser user;
     private CommonPageCreator cr;
 
-    public ListofListsController(Stage stage, FoodGetUser user) {
+    public AccueilController(Stage stage, FoodGetUser user) {
         this.stage = stage;
         this.user = user;
         cr = new CommonPageCreator(stage,user);
@@ -36,16 +37,18 @@ public class ListofListsController {
 
     public void init() {
 
-        Panier_Accueil.setOnAction(event -> openMainMenu());
-        Panier_Stats.setOnAction(event -> openStats());
-        Panier_Liste.setOnAction(event -> openLists());
-        Panier_Alertes.setOnAction(event -> openAlertes());
-        Panier_MonCompte.setOnAction(event -> openMonCompte());
+        main_menu_accueil.setOnAction(event -> openAccueil());
+        main_menu_stats.setOnAction(event -> openStats());
+        main_menu_lists.setOnAction(event -> openLists());
+        main_menu_alerts.setOnAction(event -> openAlertes());
+        main_menu_mon_compte.setOnAction(event -> openMonCompte());
     }
 
-    private void openMainMenu() {
+
+    private void openAccueil() {
         cr.openAccueil();
     }
+
     private void openLists() {
         cr.openLists();
     }
@@ -60,6 +63,4 @@ public class ListofListsController {
     private void openMonCompte(){
         cr.openMonCompte();
     }
-
-
 }

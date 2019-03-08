@@ -26,6 +26,9 @@ public class MonCompteController {
     @FXML
     private Button Mon_Compte_Mon_Compte;
 
+    @FXML
+    private Button Mon_Compte_Accueil;
+
 
     private Stage stage;
 
@@ -40,10 +43,16 @@ public class MonCompteController {
 
     public void init() {
 
+        Mon_Compte_Accueil.setOnAction(event -> openMainMenu());
         Mon_Compte_Stats.setOnAction(event -> openStats());
         Mon_Compte_Panier.setOnAction(event -> openLists());
         Mon_Compte_Alertes.setOnAction(event -> openAlertes());
         Mon_Compte_Mon_Compte.setOnAction(event -> openMonCompte());
+    }
+
+
+    private void openMainMenu() {
+        cr.openAccueil();
     }
 
     private void openLists() {

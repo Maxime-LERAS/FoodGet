@@ -4,14 +4,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import program.controller.AlertesController;
-import program.controller.ListofListsController;
-import program.controller.MonCompteController;
-import program.controller.StatsController;
-import program.views.AlertesView;
-import program.views.ListOfListsView;
-import program.views.MonCompteView;
-import program.views.StatsView;
+import program.controller.*;
+import program.views.*;
 
 import java.io.IOException;
 
@@ -119,6 +113,29 @@ public class CommonPageCreator {
 
         } catch (IOException E){
             E.printStackTrace();
+        }
+    }
+
+    public void openAccueil() {
+        FXMLLoader loader = new FXMLLoader();
+
+        //create a controller
+        MainMenuController controller = new MainMenuController(this.stage, this.user);
+
+        //attach controller
+        loader.setController(controller);
+
+        try {
+            Parent root = loader.load(getClass().getResourceAsStream(MainView.XML_FILE));
+            //initialize the controller
+            controller.init();
+            //create the view
+            this.stage.setScene(new Scene(root, MainView.WIDTH, MainView.HEIGHT));
+            this.stage.setTitle(MainView.LABEL);
+            //show the view
+            this.stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

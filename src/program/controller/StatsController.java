@@ -26,6 +26,9 @@ public class StatsController {
     @FXML
     private Button stats_Mon_Compte;
 
+    @FXML
+    private Button stats_Acceuil;
+
 
     private Stage stage;
     private ObservableList choices;
@@ -45,6 +48,7 @@ public class StatsController {
 
     public void init() {
 
+        stats_Acceuil.setOnAction(event -> openAccueil());
         stats_Stats.setOnAction(event -> openStats());
         stats_Panier.setOnAction(event -> openLists());
         stats_Alertes.setOnAction(event -> openAlertes());
@@ -54,6 +58,10 @@ public class StatsController {
         dateBox.getSelectionModel().selectFirst();
         theChoice = dateBox.getSelectionModel().getSelectedItem();
         dateBox.setOnAction(event -> theChoice = dateBox.getSelectionModel().getSelectedItem());
+    }
+
+    private void openAccueil() {
+        cr.openAccueil();
     }
 
     private void openLists() {

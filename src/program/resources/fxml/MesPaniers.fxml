@@ -10,12 +10,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="mesPaniers" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="mesPaniers" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <VBox fx:id="header" BorderPane.alignment="CENTER">
          <children>
             <ToolBar fx:id="toolbar">
                <items>
+                  <Button id="main_menu_stats" fx:id="Panier_Accueil" mnemonicParsing="false" text="Accueil" textAlignment="CENTER" />
                   <Button fx:id="Panier_Stats" mnemonicParsing="false" text="Stats" textAlignment="CENTER" />
                   <Button fx:id="Panier_Liste" defaultButton="true" mnemonicParsing="false" text="Mes Listes" textAlignment="CENTER" />
                   <Button fx:id="Panier_Alertes" mnemonicParsing="false" text="Alertes" textAlignment="CENTER" />

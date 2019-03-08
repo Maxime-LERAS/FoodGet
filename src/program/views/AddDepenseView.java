@@ -1,8 +1,7 @@
 package program.views;
 
-public class ConnectionView extends View {
-
-    public static String XML_FILE = "/program/resources/fxml/Connection.fxml";
+public class AddDepenseView {
+    public static String XML_FILE = "/program/resources/fxml/AjouterDepense-Popup.fxml";
     public static String CSS_FILE = "/program/resources/styles/mainStyle.css";
     public static final String LABEL = "FoodGet";
     public static final int WIDTH = 720;

@@ -1,6 +1,6 @@
 package program.views;
 
-public class MainView {
+public class MainView extends View {
 
     public static String XML_FILE = "/program/resources/fxml/MainMenu.fxml";
     public static String CSS_FILE = "/program/resources/styles/mainStyle.css";

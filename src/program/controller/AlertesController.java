@@ -25,6 +25,9 @@ public class AlertesController {
     @FXML
     private Button Alertes_Mon_Compte;
 
+    @FXML
+    private Button Alertes_Accueil;
+
 
     private Stage stage;
 
@@ -39,12 +42,16 @@ public class AlertesController {
 
     public void init() {
 
+        Alertes_Accueil.setOnAction(event -> openMainMenu());
         Alertes_Stats.setOnAction(event -> openStats());
         Alertes_Panier.setOnAction(event -> openLists());
         Alertes_Alertes.setOnAction(event -> openAlertes());
         Alertes_Mon_Compte.setOnAction(event -> openMonCompte());
     }
 
+    private void openMainMenu() {
+        cr.openAccueil();
+    }
     private void openLists() {
         cr.openLists();
     }
