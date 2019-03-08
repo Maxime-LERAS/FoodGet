@@ -23,3 +23,7 @@
 #badCredentials {
     -fx-text-fill: rgb(255, 0, 0);
 }
+
+#emptyFields {
+    -fx-text-fill: rgb(255, 0, 0);
+}
