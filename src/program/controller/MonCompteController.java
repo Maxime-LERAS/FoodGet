@@ -32,6 +32,9 @@ public class MonCompteController {
     @FXML
     private Button deconnect;
 
+    @FXML
+    private Hyperlink modifier_email;
+
 
     private Stage stage;
 
@@ -51,7 +54,8 @@ public class MonCompteController {
         Mon_Compte_Panier.setOnAction(event -> openLists());
         Mon_Compte_Alertes.setOnAction(event -> openAlertes());
         Mon_Compte_Mon_Compte.setOnAction(event -> openMonCompte());
-        deconnect.setOnAction(event -> cr.openConnection());
+        modifier_email.setOnAction(event -> openEmailChange());
+        deconnect.setOnAction(event -> openConnection());
     }
 
 
@@ -70,8 +74,17 @@ public class MonCompteController {
     private void openAlertes(){
         cr.openALerts();
     }
+
     private void openMonCompte(){
         cr.openMonCompte();
+    }
+
+    public void openEmailChange() {
+        cr.openEmailChange();
+    }
+
+    public void openConnection() {
+        cr.openConnection();
     }
 
 

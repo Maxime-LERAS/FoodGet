@@ -230,5 +230,30 @@ public class CommonPageCreator {
         }
     }
 
+    public void openEmailChange() {
+        FXMLLoader loader = new FXMLLoader();
+
+        //create a controller
+        NewMailController motDePasseOublierController = new NewMailController(this.stage);
+
+        //attach controller
+        loader.setController(motDePasseOublierController);
+
+        //attach XML file
+        try {
+            Parent root = loader.load(getClass().getResourceAsStream(NewMailView.XML_FILE));
+            root.getStylesheets().add(NewMailView.CSS_FILE);
+
+            this.stage.setScene(new Scene(root, NewMailView.WIDTH, NewMailView.HEIGHT));
+            motDePasseOublierController.init();
+            this.stage.setTitle(NewMailView.LABEL);
+
+            //show the view
+            this.stage.show();
+        } catch (IOException E) {
+            E.printStackTrace();
+        }
+    }
+
 
 }
