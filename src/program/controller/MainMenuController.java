@@ -27,7 +27,6 @@ public class MainMenuController {
     private FoodGetUser user;
     private CommonPageCreator cr;
     private ObservableList<ProductModel> products;
-    private ObservableDoubleValue money;
 
     @FXML
     private Text spentMoney;
@@ -57,14 +56,13 @@ public class MainMenuController {
     public MainMenuController(Stage stage, FoodGetUser user) {
         this.stage = stage;
         this.user = user;
-        cr = new CommonPageCreator(stage,user);
+        cr = new CommonPageCreator(stage, user);
         products = FXCollections.observableArrayList();
-        money = new SimpleDoubleProperty();
     }
 
     public void init() {
-        //ProductModel p = new ProductModel("Bananes", 15.00);
-        //this.user.addProduct(p);
+        ProductModel p = new ProductModel("Bananes", 15.00);
+        this.user.addProduct(p);
         products.addAll(user.getHistory());
         historyList.setItems(products);
         historyList.setCellFactory(listview -> new ListViewProductCell());
@@ -79,10 +77,12 @@ public class MainMenuController {
 
     }
 
-    public void addProductToList(String productName, double productPrice){
-        ProductModel p = new ProductModel(productName,productPrice);
+    public void addProductToList(String productName, double productPrice) {
+        double moneyBefore = user.getMoney();
+        ProductModel p = new ProductModel(productName, productPrice);
         user.addProduct(p);
         products.add(p);
+        spentMoney.setText(spentMoney.getText().replace(String.valueOf(moneyBefore), String.valueOf(user.getMoney())));
     }
 
     private void addDepenseMethod() {
@@ -115,6 +115,7 @@ public class MainMenuController {
     private void openMainMenu() {
         cr.openAccueil();
     }
+
     private void openLists() {
         cr.openLists();
     }
@@ -123,10 +124,11 @@ public class MainMenuController {
         cr.openStats();
     }
 
-    private void openAlertes(){
+    private void openAlertes() {
         cr.openALerts();
     }
-    private void openMonCompte(){
+
+    private void openMonCompte() {
         cr.openMonCompte();
     }
 }

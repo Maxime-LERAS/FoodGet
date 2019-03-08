@@ -29,6 +29,10 @@ public class AddDepenseController {
     @FXML
     private Label addFailed;
 
+    @FXML
+    private Button cancel;
+
+
 
     public AddDepenseController(MainMenuController controller, FoodGetUser user) {
         this.controller = controller;
@@ -45,7 +49,12 @@ public class AddDepenseController {
             }
         });
         validate.setOnAction(event -> validateMethod());
+        cancel.setOnAction(event -> cancelMethod());
 
+    }
+
+    private void cancelMethod() {
+        thisstage.close();
     }
 
     private void validateMethod() {

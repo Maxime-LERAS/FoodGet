@@ -10,11 +10,11 @@ public class FoodGetUser {
     private String password;
     private List<ProductModel> history;
 
-    public FoodGetUser(String username, String email, String password, int money) {
+    public FoodGetUser(String username, String email, String password,List<ProductModel> history) {
         this.username = username;
         this.email = email;
         this.password = password;
-        this.history = new ArrayList<>();
+        this.history = history;
     }
 
     public String getUsername() {

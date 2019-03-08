@@ -54,6 +54,6 @@ public class ListViewProductCell extends ListCell<ProductModel> {
         String pattern = "#.##";
         DecimalFormat df = new DecimalFormat(pattern);
         prodPrice.setText(df.format(product.getProductPrice()) +"€");
-        prodDate.setText(new Date().toLocaleString());
+        prodDate.setText(product.getAddDate().toLocaleString());
     }
 }
