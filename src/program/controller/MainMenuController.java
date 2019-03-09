@@ -18,6 +18,7 @@ import program.model.ProductModel;
 import program.views.AddDepenseView;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 
 
 @SuppressWarnings("Duplicates")
@@ -61,14 +62,13 @@ public class MainMenuController {
     }
 
     public void init() {
-        ProductModel p = new ProductModel("Bananes", 15.00);
-        this.user.addProduct(p);
         products.addAll(user.getHistory());
         historyList.setItems(products);
         historyList.setCellFactory(listview -> new ListViewProductCell());
         addDepense.setOnAction(event -> addDepenseMethod());
+        DecimalFormat df = new DecimalFormat("#.##");
         spentMoney.setText(spentMoney.getText().replace("%username%", user.getUsername())
-                .replace("%money%", "" + user.getMoney()));
+                .replace("%money%", "" + df.format(user.getMoney())));
         main_menu_accueil.setOnAction(event -> openMainMenu());
         main_menu_stats.setOnAction(event -> openStats());
         main_menu_lists.setOnAction(event -> openLists());
@@ -82,7 +82,8 @@ public class MainMenuController {
         ProductModel p = new ProductModel(productName, productPrice);
         user.addProduct(p);
         products.add(p);
-        spentMoney.setText(spentMoney.getText().replace(String.valueOf(moneyBefore), String.valueOf(user.getMoney())));
+        DecimalFormat df = new DecimalFormat("#.##");
+        spentMoney.setText(spentMoney.getText().replace(df.format(moneyBefore), df.format(user.getMoney())));
     }
 
     private void addDepenseMethod() {

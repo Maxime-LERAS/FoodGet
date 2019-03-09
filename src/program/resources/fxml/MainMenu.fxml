@@ -76,14 +76,6 @@
             </GridPane>
             <HBox fx:id="buttonsBox" alignment="CENTER">
                <children>
-                  <Button fx:id="seeMore" mnemonicParsing="false" text="Voir Plus">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets bottom="5.0" top="5.0" />
-                     </HBox.margin>
-                  </Button>
                   <Button fx:id="addDepense" mnemonicParsing="false" text="Ajouter une dépense">
                      <font>
                         <Font size="14.0" />
