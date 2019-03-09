@@ -234,7 +234,7 @@ public class CommonPageCreator {
         FXMLLoader loader = new FXMLLoader();
 
         //create a controller
-        NewMailController motDePasseOublierController = new NewMailController(this.stage);
+        NewMailController motDePasseOublierController = new NewMailController(this.stage, this.user);
 
         //attach controller
         loader.setController(motDePasseOublierController);

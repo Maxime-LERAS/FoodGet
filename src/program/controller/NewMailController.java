@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import program.model.CommonPageCreator;
+import program.model.FoodGetUser;
 
 public class NewMailController {
 
@@ -25,10 +26,12 @@ public class NewMailController {
 
     private Stage stage;
     private CommonPageCreator cr;
+    private FoodGetUser user;
 
-    public NewMailController(Stage stage) {
+    public NewMailController(Stage stage, FoodGetUser user) {
         this.stage = stage;
-        cr = new CommonPageCreator(this.stage);
+        this.user = user;
+        cr = new CommonPageCreator(this.stage, user);
     }
 
     public void init() {
