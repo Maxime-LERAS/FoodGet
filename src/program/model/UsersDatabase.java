@@ -1,30 +1,19 @@
 package program.model;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class UsersDatabase {
 
     private static ArrayList<FoodGetUser> database = new ArrayList<FoodGetUser>() {{
-        Date march2_2019 = new Date();
-        Date march4_2019 = new Date();
-        Date march5_2019 = new Date();
-        march2_2019.setTime(1551539559);
-        march2_2019.setTime(march2_2019.getTime()*1000);
-        march4_2019.setTime(1551723357);
-        march4_2019.setTime(march4_2019.getTime()*1000);
-        march5_2019.setTime(1551783227);
-        march5_2019.setTime(march5_2019.getTime()*1000);
-        Date march1_2019 = new Date();
-        Date march7_2019 = new Date();
-        Date march8_2019 = new Date();
-        march1_2019.setTime(1551474158);
-        march1_2019.setTime(march1_2019.getTime()*1000);
-        march7_2019.setTime(1551964652);
-        march7_2019.setTime(march7_2019.getTime()*1000);
-        march8_2019.setTime(1552021891);
-        march8_2019.setTime(march8_2019.getTime()*1000);
+        LocalDateTime march2_2019 = LocalDate.of(2019,3,2).atTime(16,12,39);
+        LocalDateTime march4_2019 = LocalDate.of(2019,3,4).atTime(19,15,57);
+        LocalDateTime march5_2019 = LocalDate.of(2019,3,5).atTime(11,53,47);
+        LocalDateTime march1_2019 = LocalDate.of(2019,3,1).atTime(22,2,38);
+        LocalDateTime march7_2019 = LocalDate.of(2019,3,7).atTime(14,17,32);
+        LocalDateTime march8_2019 = LocalDate.of(2019,3,8).atTime(6,11,31);
         List<ProductModel> julieProducts = new ArrayList<ProductModel>() {{
             add(new ProductModel("Bananes", 5.84, march2_2019));
             add(new ProductModel("Céréales", 2.79, march4_2019));

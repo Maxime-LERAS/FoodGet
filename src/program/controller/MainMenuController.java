@@ -78,7 +78,6 @@ public class MainMenuController {
         main_menu_alerts.setOnAction(event -> openAlertes());
         main_menu_mon_compte.setOnAction(event -> openMonCompte());
         moneyThreshold.setOnAction(event -> setThreshold());
-
     }
 
 

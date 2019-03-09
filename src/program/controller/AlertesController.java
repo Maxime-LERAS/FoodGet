@@ -11,6 +11,8 @@ import program.model.AlertModel;
 import program.model.CommonPageCreator;
 import program.model.FoodGetUser;
 
+import java.time.ZoneOffset;
+import java.time.temporal.TemporalField;
 import java.util.Collections;
 import java.util.Comparator;
 
@@ -57,7 +59,7 @@ public class AlertesController {
         Alertes_Stats.setFocusTraversable(false);
         Alertes_Panier.setFocusTraversable(false);
         alerts.addAll(user.getAlerts());
-        alerts.sort(Comparator.comparing(alertModel -> alertModel.getAlertDate().getTime()));
+        alerts.sort(Comparator.comparing(AlertModel::getAlertDate));
         Collections.reverse(alerts);
         Alertes_List.setItems(alerts);
         Alertes_List.setCellFactory(listview -> new ListViewAlertCell());

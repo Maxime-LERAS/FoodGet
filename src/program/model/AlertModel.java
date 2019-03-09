@@ -1,27 +1,27 @@
 package program.model;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class AlertModel {
 
     private String alertContent;
-    private Date alertDate;
+    private LocalDateTime alertDate;
 
-    public AlertModel(String alertContent, Date alertDate) {
+    public AlertModel(String alertContent, LocalDateTime alertDate) {
         this.alertContent = alertContent;
         this.alertDate = alertDate;
     }
 
     public AlertModel(String alertContent) {
         this.alertContent = alertContent;
-        this.alertDate = new Date();
+        this.alertDate = LocalDateTime.now();
     }
 
     public String getAlertContent() {
         return alertContent;
     }
 
-    public Date getAlertDate() {
+    public LocalDateTime getAlertDate() {
         return alertDate;
     }
 }

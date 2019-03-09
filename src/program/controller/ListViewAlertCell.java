@@ -8,6 +8,9 @@ import javafx.scene.layout.GridPane;
 import program.model.AlertModel;
 
 import java.io.IOException;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+import java.util.Locale;
 
 public class ListViewAlertCell extends ListCell<AlertModel> {
 
@@ -45,6 +48,6 @@ public class ListViewAlertCell extends ListCell<AlertModel> {
 
     public void setContent(AlertModel alert) {
         alertContent.setText(alert.getAlertContent());
-        alertDate.setText(alert.getAlertDate().toLocaleString());
+        alertDate.setText(alert.getAlertDate().format(DateTimeFormatter.ofPattern("d MMM yyyy 'à' HH:mm",Locale.FRANCE)));
     }
 }

@@ -52,7 +52,7 @@ public class NewMailController {
         if (email_Field.equals("")) {
             showEmptyFieldError();
         }
-        else if (email_Field.contains("@") == false) {
+        else if (!email_Field.contains("@")) {
             notEmailFormat();
         }
         else {

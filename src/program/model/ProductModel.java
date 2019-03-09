@@ -1,6 +1,7 @@
 package program.model;
 
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class ProductModel {
@@ -8,15 +9,15 @@ public class ProductModel {
 
     private String productName;
     private double productPrice;
-    private Date addDate;
+    private LocalDateTime addDate;
 
     public ProductModel(String productName, double productPrice) {
         this.productName = productName;
         this.productPrice = productPrice;
-        this.addDate = new Date();
+        this.addDate = LocalDateTime.now();
     }
 
-    public ProductModel(String productName, double productPrice, Date date) {
+    public ProductModel(String productName, double productPrice, LocalDateTime date) {
         this.productName = productName;
         this.productPrice = productPrice;
         this.addDate = date;
@@ -30,7 +31,7 @@ public class ProductModel {
         return productPrice;
     }
 
-    public Date getAddDate() {
+    public LocalDateTime getAddDate() {
         return addDate;
     }
 
