@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import program.model.AlertModel;
 import program.model.CommonPageCreator;
 import program.model.FoodGetUser;
 import program.model.ProductModel;
@@ -19,6 +20,7 @@ import program.views.AddDepenseView;
 
 import java.io.IOException;
 import java.text.DecimalFormat;
+import java.util.Date;
 
 
 @SuppressWarnings("Duplicates")
@@ -82,6 +84,10 @@ public class MainMenuController {
         ProductModel p = new ProductModel(productName, productPrice);
         user.addProduct(p);
         products.add(p);
+        Date march5_2019 = new Date();
+        march5_2019.setTime(1551783227);
+        march5_2019.setTime(march5_2019.getTime()*1000);
+        user.getAlerts().add(new AlertModel(""+ p.getProductName() + "" + " au prix de " + p.getProductPrice() + " ajouté !", march5_2019));
         DecimalFormat df = new DecimalFormat("#.##");
         spentMoney.setText(spentMoney.getText().replace(df.format(moneyBefore), df.format(user.getMoney())));
     }
