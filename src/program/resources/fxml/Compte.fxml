@@ -20,7 +20,7 @@
                 <Button fx:id="Mon_Compte_Stats" mnemonicParsing="false" text="Stats" />
                   <Button fx:id="Mon_Compte_Panier" mnemonicParsing="false" text="Mes Listes" />
                   <Button fx:id="Mon_Compte_Alertes" mnemonicParsing="false" text="Alertes" />
-                  <Button fx:id="Mon_Compte_Mon_Compte" mnemonicParsing="false" text="Mon Compte" />
+                  <Button fx:id="Mon_Compte_Mon_Compte" defaultButton="true" mnemonicParsing="false" text="Mon Compte" />
               </items>
             </ToolBar>
             <HBox alignment="CENTER" prefHeight="167.0" prefWidth="724.0">
@@ -53,11 +53,11 @@
                      <font>
                         <Font size="20.0" />
                      </font></Hyperlink>
-                  <Hyperlink text="Modifier mon mot de passe" textAlignment="CENTER">
+                  <Hyperlink fx:id="modifier_mdp" text="Modifier mon mot de passe" textAlignment="CENTER">
                      <font>
                         <Font size="20.0" />
                      </font></Hyperlink>
-                  <Hyperlink text="Modifier mon prénom" textAlignment="CENTER">
+                  <Hyperlink fx:id="modifier_prenom" text="Modifier mon prénom" textAlignment="CENTER">
                      <font>
                         <Font size="20.0" />
                      </font></Hyperlink>
