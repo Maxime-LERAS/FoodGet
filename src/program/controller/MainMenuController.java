@@ -84,10 +84,7 @@ public class MainMenuController {
         ProductModel p = new ProductModel(productName, productPrice);
         user.addProduct(p);
         products.add(p);
-        Date march5_2019 = new Date();
-        march5_2019.setTime(1551783227);
-        march5_2019.setTime(march5_2019.getTime()*1000);
-        user.getAlerts().add(new AlertModel(""+ p.getProductName() + "" + " au prix de " + p.getProductPrice() + " ajouté !", march5_2019));
+        user.getAlerts().add(new AlertModel(""+ p.getProductName() + "" + " au prix de " + p.getProductPrice() + "€ ajouté !"));
         DecimalFormat df = new DecimalFormat("#.##");
         spentMoney.setText(spentMoney.getText().replace(df.format(moneyBefore), df.format(user.getMoney())));
     }
