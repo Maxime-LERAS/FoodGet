@@ -30,13 +30,16 @@ public class UsersDatabase {
             add(new ProductModel("Céréales", 2.79, march4_2019));
             add(new ProductModel("Pâtes", 0.81, march5_2019));
         }};
+        List<AlertModel> julieAlerts = new ArrayList<AlertModel>() {{
+            add(new AlertModel("Seuil de dépense dépassé",march5_2019));
+        }};
         List<ProductModel> brunoProducts = new ArrayList<ProductModel>() {{
             add(new ProductModel("Poulet", 14.82,march1_2019));
             add(new ProductModel("Riz", 1.99,march7_2019));
             add(new ProductModel("Eau Minérale", 1.05,march8_2019));
         }};
 
-        add(new FoodGetUser("Julie", "juliev@gmail.com", "12", julieProducts));
+        add(new FoodGetUser("Julie", "juliev@gmail.com", "12", julieProducts,julieAlerts));
         add(new FoodGetUser("Bruno", "brunoinshape@gmail.com", "10", brunoProducts));
     }};
 

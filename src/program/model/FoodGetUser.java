@@ -9,12 +9,28 @@ public class FoodGetUser {
     private String email;
     private String password;
     private List<ProductModel> history;
+    private List<AlertModel> alertHistory;
 
     public FoodGetUser(String username, String email, String password,List<ProductModel> history) {
         this.username = username;
         this.email = email;
         this.password = password;
         this.history = history;
+    }
+
+    public FoodGetUser(String username, String email, String password) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.history = new ArrayList<>();
+    }
+
+    public FoodGetUser(String username, String email, String password,List<ProductModel> history, List<AlertModel> alertHistory) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.history = history;
+        this.alertHistory = alertHistory;
     }
 
     public String getUsername() {
@@ -59,5 +75,9 @@ public class FoodGetUser {
 
     public void setHistory(List<ProductModel> history) {
         this.history = history;
+    }
+
+    public List<AlertModel> getAlerts() {
+        return alertHistory;
     }
 }

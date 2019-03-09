@@ -1,11 +1,16 @@
 package program.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import program.model.AlertModel;
 import program.model.CommonPageCreator;
 import program.model.FoodGetUser;
+
 
 public class AlertesController {
 
@@ -28,9 +33,12 @@ public class AlertesController {
     @FXML
     private Button Alertes_Accueil;
 
+    @FXML
+    private ListView Alertes_List;
+
 
     private Stage stage;
-
+    private ObservableList<AlertModel> alerts;
     private FoodGetUser user;
     private CommonPageCreator cr;
 
@@ -38,10 +46,13 @@ public class AlertesController {
         this.stage = stage;
         this.user = user;
         cr = new CommonPageCreator(stage,user);
+        alerts = FXCollections.observableArrayList();
     }
 
     public void init() {
-
+        alerts.addAll(user.getAlerts());
+        Alertes_List.setItems(alerts);
+        Alertes_List.setCellFactory(listview -> new ListViewAlertCell());
         Alertes_Accueil.setOnAction(event -> openMainMenu());
         Alertes_Stats.setOnAction(event -> openStats());
         Alertes_Panier.setOnAction(event -> openLists());
