@@ -1,10 +1,16 @@
 package program.controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import program.model.CommonPageCreator;
 import program.model.FoodGetUser;
+import program.views.CreateListView;
+
+import java.io.IOException;
 
 public class ListofListsController {
 
@@ -61,5 +67,36 @@ public class ListofListsController {
         cr.openMonCompte();
     }
 
+
+    public void addListToLists(String text) {
+
+    }
+
+    public void popupCreateList(){
+        FXMLLoader loader = new FXMLLoader();
+
+        //create a controller
+        CreateNewListController controller = new CreateNewListController(this, this.user);
+
+        //attach controller
+        loader.setController(controller);
+
+        try {
+            Parent root = loader.load(getClass().getResourceAsStream(CreateListView.XML_FILE));
+            //initialize the controller
+
+            Stage popup = new Stage();
+
+            //create the view
+            popup.setScene(new Scene(root, CreateListView.WIDTH, CreateListView.HEIGHT));
+            controller.init(popup);
+            popup.setTitle(CreateListView.LABEL);
+            //show the view
+            popup.show();
+        } catch (
+                IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }
