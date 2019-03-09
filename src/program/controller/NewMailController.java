@@ -36,6 +36,7 @@ public class NewMailController {
 
     public void init() {
         emptyFields.setText("");
+        System.out.println(this.user.getEmail());
         New_mail_valider.setOnAction(event -> checkForm());
         New_mail_retour.setOnAction(event -> cr.openMonCompte());
     }
@@ -46,6 +47,8 @@ public class NewMailController {
             showEmptyFieldError();
         }
         else {
+            this.user.setEmail(email_Field);
+
             cr.openMonCompte();
         }
     }
