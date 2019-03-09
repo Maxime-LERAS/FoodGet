@@ -2,7 +2,7 @@
 Projet IHM 2019 
 
 # Scénarios : 
-# Scénario 1 : Julie décidée comme jamais !
+## Scénario 1 : Julie décidée comme jamais !
 
 Julie en a marre de toujours être au rouge à la fin du mois, et a décidé d'utiliser notre application dont elle a entendu parler auparavant afin de pouvoir gérer son budget étudiant.
 
@@ -14,7 +14,7 @@ Julie créer donc une nouvelle liste qu'elle a nommé "Semaine_1", où elle a aj
 
 Au final, sa course ne lui coûtera que 30€, comportant tout un tas de bons aliments, alors qu'auparavant elle en avait pour plus de 40€/semaine.
 
-# Scénario 1 : Bruno reconnaît ses limites.
+## Scénario 2 : Bruno reconnaît ses limites.
 
 Durant sa pause au travail, après avoir installé l'application, Bruno créer son compte et se connecte. Il décide d'abord de définir un seuil de dépense à ne pas dépasser qui est de 200€. 
 
