@@ -118,6 +118,7 @@ public class InscriptionController {
         confirmationPWBox.clear();
         newEmailBox.clear();
         newFirstNameBox.clear();
+        newNameBox.clear();
         emptyFields.setText("Champ(s) vide(s) !");
     }
 
