@@ -5,6 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import program.model.CommonPageCreator;
 import program.model.FoodGetUser;
@@ -36,15 +37,23 @@ public class NewMailController {
 
     public void init() {
         emptyFields.setText("");
-        System.out.println(this.user.getEmail());
         New_mail_valider.setOnAction(event -> checkForm());
         New_mail_retour.setOnAction(event -> cr.openMonCompte());
+        this.stage.getScene().setOnKeyPressed(keyEvent -> {
+            if (keyEvent.getCode() == KeyCode.ENTER) {
+                checkForm();
+                keyEvent.consume();
+            }
+        });
     }
 
     public void checkForm() {
         String email_Field = New_mail_new_email.getCharacters().toString();
         if (email_Field.equals("")) {
             showEmptyFieldError();
+        }
+        else if (email_Field.contains("@") == false) {
+            notEmailFormat();
         }
         else {
             this.user.setEmail(email_Field);
@@ -56,5 +65,10 @@ public class NewMailController {
     private void showEmptyFieldError() {
         New_mail_new_email.clear();
         emptyFields.setText("Champ vide !");
+    }
+
+    private void notEmailFormat() {
+        New_mail_new_email.clear();
+        emptyFields.setText("Format email : abc@mail.com !!!");
     }
 }

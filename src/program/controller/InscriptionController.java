@@ -65,6 +65,12 @@ public class InscriptionController {
         emptyFields.setText("");
         validateInscriptionButton.setOnAction(event -> checkForm());
         backToConnectionLink.setOnAction(event -> connectionPage());
+        this.stage.getScene().setOnKeyPressed(keyEvent -> {
+            if (keyEvent.getCode() == KeyCode.ENTER) {
+                checkForm();
+                keyEvent.consume();
+            }
+        });
     }
 
     public void checkForm() {
