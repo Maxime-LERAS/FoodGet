@@ -9,13 +9,13 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-import program.model.CommonPageCreator;
-import program.model.ConnectionCheckerModel;
-import program.model.FoodGetUser;
+import program.model.*;
 import program.views.ConnectionView;
 import program.views.MainView;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class InscriptionController {
@@ -50,6 +50,12 @@ public class InscriptionController {
 
     private Stage stage;
     private CommonPageCreator cr;
+    private String usernameField;
+    private String passwordField;
+    private String checkPasswordField;
+    private String emailField;
+    private String firstNameField;
+
 
     public InscriptionController(Stage stage) {
         this.stage = stage;
@@ -62,12 +68,17 @@ public class InscriptionController {
     }
 
     public void checkForm() {
-        String usernameField = newUsernameBox.getCharacters().toString();
-        String passwordField = newPasswordBox.getCharacters().toString();
-        if (usernameField.equals("") || passwordField.equals("")) {
+        usernameField = newUsernameBox.getCharacters().toString();
+        passwordField = newPasswordBox.getCharacters().toString();
+        checkPasswordField = confirmationPWBox.getCharacters().toString();
+        emailField = newEmailBox.getCharacters().toString();
+        firstNameField = newFirstNameBox.getCharacters().toString();
+
+        if (usernameField.equals("") || passwordField.equals("") || checkPasswordField.equals("") || emailField.equals("") || firstNameField.equals("")) {
             showEmptyFieldError();
         }
         else {
+            addToDatabase();
             connectionPage();
         }
     }
@@ -104,6 +115,15 @@ public class InscriptionController {
     private void showEmptyFieldError() {
         newUsernameBox.clear();
         newPasswordBox.clear();
+        confirmationPWBox.clear();
+        newEmailBox.clear();
+        newFirstNameBox.clear();
         emptyFields.setText("Champ(s) vide(s) !");
+    }
+
+    private void addToDatabase() {
+        ArrayList<FoodGetUser> database = UsersDatabase.getDatabase();
+        List<ProductModel> newUserProducts = new ArrayList<ProductModel>();
+        database.add(new FoodGetUser(this.usernameField, this.emailField, this.passwordField, newUserProducts));
     }
 }
