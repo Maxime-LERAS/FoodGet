@@ -28,6 +28,14 @@
     -fx-text-fill: rgb(255, 0, 0);
 }
 
-.list-view:focused{
+#inputFailed {
+    -fx-text-fill: rgb(255, 0, 0);
+}
+
+#addFailed {
+    -fx-text-fill: rgb(255, 0, 0);
+}
+
+.list-view:focused {
     -fx-border-color: black;
 }

@@ -31,16 +31,22 @@ public class UsersDatabase {
             add(new ProductModel("Pâtes", 0.81, march5_2019));
         }};
         List<AlertModel> julieAlerts = new ArrayList<AlertModel>() {{
-            add(new AlertModel("Seuil de dépense dépassé",march5_2019));
+            add(new AlertModel("Bienvenue sur FoodGet, Julie",march2_2019));
         }};
         List<ProductModel> brunoProducts = new ArrayList<ProductModel>() {{
             add(new ProductModel("Poulet", 14.82,march1_2019));
             add(new ProductModel("Riz", 1.99,march7_2019));
             add(new ProductModel("Eau Minérale", 1.05,march8_2019));
         }};
-
-        add(new FoodGetUser("Julie", "juliev@gmail.com", "12", julieProducts,julieAlerts));
-        add(new FoodGetUser("Bruno", "brunoinshape@gmail.com", "10", brunoProducts));
+        List<AlertModel> brunoAlerts = new ArrayList<AlertModel>() {{
+            add(new AlertModel("Bienvenue sur FoodGet, Bruno",march1_2019));
+        }};
+        FoodGetUser julie = new FoodGetUser("Julie", "juliev@gmail.com", "12", julieProducts,julieAlerts);
+        julie.setSpentMoneyThreshold(18.0);
+        add(julie);
+        FoodGetUser bruno = new FoodGetUser("Bruno", "brunoinshape@gmail.com", "10", brunoProducts,brunoAlerts);
+        bruno.setSpentMoneyThreshold(115.0);
+        add(bruno);
     }};
 
     public static ArrayList<FoodGetUser> getDatabase() {

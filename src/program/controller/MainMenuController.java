@@ -15,6 +15,7 @@ import program.model.CommonPageCreator;
 import program.model.FoodGetUser;
 import program.model.ProductModel;
 import program.views.AddDepenseView;
+import program.views.MoneyThresholdView;
 
 import java.io.IOException;
 import java.text.DecimalFormat;
@@ -52,6 +53,9 @@ public class MainMenuController {
     @FXML
     private Button addDepense;
 
+    @FXML
+    private Button moneyThreshold;
+
 
     public MainMenuController(Stage stage, FoodGetUser user) {
         this.stage = stage;
@@ -73,17 +77,28 @@ public class MainMenuController {
         main_menu_lists.setOnAction(event -> openLists());
         main_menu_alerts.setOnAction(event -> openAlertes());
         main_menu_mon_compte.setOnAction(event -> openMonCompte());
+        moneyThreshold.setOnAction(event -> setThreshold());
 
     }
+
 
     public void addProductToList(String productName, double productPrice) {
         double moneyBefore = user.getMoney();
         ProductModel p = new ProductModel(productName, productPrice);
         user.addProduct(p);
         products.add(p);
-        user.getAlerts().add(new AlertModel(""+ p.getProductName() + "" + " au prix de " + p.getProductPrice() + "€ ajouté !"));
+        user.addAlert(new AlertModel("" + p.getProductName() + "" + " au prix de " + p.getProductPrice() + "€ ajouté !"));
+
         DecimalFormat df = new DecimalFormat("#.##");
+        if (user.getMoney() > user.getSpentMoneyThreshold()) {
+            user.addAlert(new AlertModel(
+                    "Seuil de dépense dépassé de " + df.format(user.getMoney() - user.getSpentMoneyThreshold()) + "€"));
+        }
         spentMoney.setText(spentMoney.getText().replace(df.format(moneyBefore), df.format(user.getMoney())));
+    }
+
+    public void setThresholdForUser(double d) {
+        user.setSpentMoneyThreshold(d);
     }
 
     private void addDepenseMethod() {
@@ -98,6 +113,7 @@ public class MainMenuController {
         try {
             Parent root = loader.load(getClass().getResourceAsStream(AddDepenseView.XML_FILE));
             //initialize the controller
+            root.getStylesheets().add(AddDepenseView.CSS_FILE);
 
             Stage popup = new Stage();
 
@@ -105,6 +121,33 @@ public class MainMenuController {
             popup.setScene(new Scene(root, AddDepenseView.WIDTH, AddDepenseView.HEIGHT));
             controller.init(popup);
             popup.setTitle(AddDepenseView.LABEL);
+            //show the view
+            popup.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void setThreshold() {
+        FXMLLoader loader = new FXMLLoader();
+
+        //create a controller
+        SetThreshOldController controller = new SetThreshOldController(this, this.user);
+
+        //attach controller
+        loader.setController(controller);
+
+        try {
+            Parent root = loader.load(getClass().getResourceAsStream(MoneyThresholdView.XML_FILE));
+            //initialize the controller
+            root.getStylesheets().add(MoneyThresholdView.CSS_FILE);
+
+            Stage popup = new Stage();
+
+            //create the view
+            popup.setScene(new Scene(root, MoneyThresholdView.WIDTH, MoneyThresholdView.HEIGHT));
+            controller.init(popup);
+            popup.setTitle(MoneyThresholdView.LABEL);
             //show the view
             popup.show();
         } catch (IOException e) {
@@ -132,4 +175,6 @@ public class MainMenuController {
     private void openMonCompte() {
         cr.openMonCompte();
     }
+
+
 }
