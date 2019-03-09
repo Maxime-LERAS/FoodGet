@@ -19,25 +19,16 @@
          <children>
             <HBox fx:id="productNameBox" alignment="CENTER">
                <children>
-                  <Text fx:id="productName" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom du Produit" wrappingWidth="184.529296875">
+                  <Text id="thresholdText" fx:id="thresholdText" strokeType="OUTSIDE" strokeWidth="0.0" text="Seuil de dépense" wrappingWidth="184.529296875">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Text>
                </children>
             </HBox>
-            <TextField fx:id="productField" alignment="CENTER" promptText="Nom du produit" />
-            <HBox fx:id="priceBox" alignment="CENTER">
-               <children>
-                  <Text fx:id="price" strokeType="OUTSIDE" strokeWidth="0.0" text="Prix (en €)" wrappingWidth="184.529296875">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Text>
-               </children>
-            </HBox>
-            <TextField fx:id="priceField" alignment="CENTER" promptText="Prix" />
-            <Label id="addFailed" fx:id="addFailed" alignment="CENTER" maxWidth="1.7976931348623157E308" text="failed" />
+            <TextField id="thresholdField" fx:id="thresholdField" alignment="CENTER" promptText="Seuil de dépense en €" />
+            <HBox fx:id="priceBox" alignment="CENTER" />
+            <Label id="inputFailed" fx:id="inputFailed" alignment="CENTER" maxWidth="1.7976931348623157E308" text="failed" />
             <HBox fx:id="buttonsBox" alignment="CENTER" prefHeight="83.0" prefWidth="200.0">
                <children>
                   <Button fx:id="validate" mnemonicParsing="false" text="Valider">

@@ -11,6 +11,9 @@ import program.model.AlertModel;
 import program.model.CommonPageCreator;
 import program.model.FoodGetUser;
 
+import java.util.Collections;
+import java.util.Comparator;
+
 
 public class AlertesController {
 
@@ -50,7 +53,12 @@ public class AlertesController {
     }
 
     public void init() {
+        Alertes_Accueil.setFocusTraversable(false);
+        Alertes_Stats.setFocusTraversable(false);
+        Alertes_Panier.setFocusTraversable(false);
         alerts.addAll(user.getAlerts());
+        alerts.sort(Comparator.comparing(alertModel -> alertModel.getAlertDate().getTime()));
+        Collections.reverse(alerts);
         Alertes_List.setItems(alerts);
         Alertes_List.setCellFactory(listview -> new ListViewAlertCell());
         Alertes_Accueil.setOnAction(event -> openMainMenu());

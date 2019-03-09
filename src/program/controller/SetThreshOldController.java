@@ -8,8 +8,8 @@ import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import program.model.FoodGetUser;
 
+public class SetThreshOldController {
 
-public class AddDepenseController {
 
     private MainMenuController controller;
 
@@ -18,29 +18,28 @@ public class AddDepenseController {
     private Stage thisstage;
 
     @FXML
-    private TextField productField;
+    private TextField thresholdField;
 
-    @FXML
-    private TextField priceField;
 
     @FXML
     private Button validate;
 
     @FXML
-    private Label addFailed;
+    private Label inputFailed;
 
     @FXML
     private Button cancel;
 
 
-    public AddDepenseController(MainMenuController controller, FoodGetUser user) {
+
+    public SetThreshOldController(MainMenuController controller, FoodGetUser user) {
         this.controller = controller;
         this.user = user;
     }
 
     public void init(Stage stage) {
-        this.thisstage = stage;
-        addFailed.setText("");
+        this.thisstage=stage;
+        inputFailed.setText("");
         stage.getScene().setOnKeyPressed(keyEvent -> {
             if (keyEvent.getCode() == KeyCode.ENTER) {
                 validateMethod();
@@ -57,18 +56,20 @@ public class AddDepenseController {
     }
 
     private void validateMethod() {
-        if (productField.getText().equals("") || priceField.getText().equals("")) {
-            addFailed.setText("Veuillez remplir les deux champs");
-        } else {
-            try {
-                double d = Double.valueOf(priceField.getText());
-                controller.addProductToList(productField.getText(), d);
+        if(thresholdField.getText().equals("")){
+            inputFailed.setText("Veuillez remplir les deux champs");
+        }else{
+            try{
+                double d = Double.valueOf(thresholdField.getText());
+                controller.setThresholdForUser(d);
                 thisstage.close();
-            } catch (NumberFormatException e) {
-                addFailed.setText("Entrez un nombre valide pour le prix");
-                priceField.clear();
+            }catch (NumberFormatException e){
+                inputFailed.setText("Entrez un nombre valide pour le seuil");
+                thresholdField.clear();
             }
 
         }
     }
+
+
 }
