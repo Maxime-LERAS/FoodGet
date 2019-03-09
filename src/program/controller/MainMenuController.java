@@ -1,7 +1,5 @@
 package program.controller;
 
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.value.ObservableDoubleValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -20,7 +18,6 @@ import program.views.AddDepenseView;
 
 import java.io.IOException;
 import java.text.DecimalFormat;
-import java.util.Date;
 
 
 @SuppressWarnings("Duplicates")

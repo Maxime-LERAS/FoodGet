@@ -47,7 +47,7 @@ public class StatsController {
     }
 
     public void init() {
-
+        stats_Acceuil.setFocusTraversable(false);
         stats_Acceuil.setOnAction(event -> openAccueil());
         stats_Stats.setOnAction(event -> openStats());
         stats_Panier.setOnAction(event -> openLists());

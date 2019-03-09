@@ -53,6 +53,9 @@ public class AlertesController {
     }
 
     public void init() {
+        Alertes_Accueil.setFocusTraversable(false);
+        Alertes_Stats.setFocusTraversable(false);
+        Alertes_Panier.setFocusTraversable(false);
         alerts.addAll(user.getAlerts());
         alerts.sort(Comparator.comparing(alertModel -> alertModel.getAlertDate().getTime()));
         Collections.reverse(alerts);

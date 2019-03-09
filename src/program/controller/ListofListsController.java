@@ -35,7 +35,8 @@ public class ListofListsController {
     }
 
     public void init() {
-
+        Panier_Accueil.setFocusTraversable(false);
+        Panier_Stats.setFocusTraversable(false);
         Panier_Accueil.setOnAction(event -> openMainMenu());
         Panier_Stats.setOnAction(event -> openStats());
         Panier_Liste.setOnAction(event -> openLists());

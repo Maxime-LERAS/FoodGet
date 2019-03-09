@@ -48,6 +48,10 @@ public class MonCompteController {
     }
 
     public void init() {
+        Mon_Compte_Accueil.setFocusTraversable(false);
+        Mon_Compte_Stats.setFocusTraversable(false);
+        Mon_Compte_Panier.setFocusTraversable(false);
+        Mon_Compte_Alertes.setFocusTraversable(false);
 
         Mon_Compte_Accueil.setOnAction(event -> openMainMenu());
         Mon_Compte_Stats.setOnAction(event -> openStats());
