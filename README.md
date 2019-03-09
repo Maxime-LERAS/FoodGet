@@ -28,3 +28,10 @@ Bruno le coach sportif, en discussion avec son élève Johann, décide d'utilise
 
 Après quelques minutes, Bruno a fini sa liste et la partage avec son élève.
 
+### Scénario 4 : Julie fait ses maths.
+
+Julie est chez elle, elle lance l'application, se connecte et se dirige directement vers l'onglet "Stats" afin de savoir exactement combien elle a dépensé cette semaine et ce mois-ci, pour comparer ses résultats avec le mois dernier avant d'utiliser FOODGET.
+
+Elle remarque qu'elle a pu économiser beaucoup plus d'argent qu'elle n'ésperait. Après avoir vu ce qu'elle voulait voir, elle se déconecte. 
+
+Julie est contente et n'hésite pas à recommander FOODGET à ses amis et ses proches !
