@@ -51,14 +51,6 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="supprimerListe" mnemonicParsing="false" text="Supprimer une Liste" textAlignment="CENTER">
-               <font>
-                  <Font size="22.0" />
-               </font>
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </Button>
          </children>
       </VBox>
    </center>
