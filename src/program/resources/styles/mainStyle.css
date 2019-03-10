@@ -52,10 +52,10 @@
 }
 
 #buttonColor {
-    -fx-text-fill: white;
-    -fx-background-color: black;
+    -fx-text-fill: black;
+    -fx-background-color: #ffbd4a;
 }
 
 #PaneColor {
-    -fx-background-color: #FFFAF0;
+    -fx-background-color: #FFFAF2;
 }

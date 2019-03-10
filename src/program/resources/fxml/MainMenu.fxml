@@ -76,12 +76,12 @@
             </GridPane>
             <HBox fx:id="buttonsBox" alignment="CENTER">
                <children>
-                  <Button id="moneyThreshold" fx:id="moneyThreshold" minWidth="-Infinity" mnemonicParsing="false" prefWidth="150.0" text="Seuil de dépense">
+                  <Button id="buttonColor" fx:id="moneyThreshold" minWidth="-Infinity" mnemonicParsing="false" prefWidth="150.0" text="Seuil de dépense">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Button>
-                  <Button fx:id="addDepense" minWidth="-Infinity" mnemonicParsing="false" prefWidth="150.0" text="Ajouter une dépense">
+                  <Button id="buttonColor" fx:id="addDepense" minWidth="-Infinity" mnemonicParsing="false" prefWidth="150.0" text="Ajouter une dépense">
                      <font>
                         <Font size="14.0" />
                      </font>

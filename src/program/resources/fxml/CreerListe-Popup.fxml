@@ -41,12 +41,12 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button fx:id="New_List_valider" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Valider" GridPane.halignment="CENTER">
+                        <Button id="buttonColor" fx:id="New_List_valider" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Valider" GridPane.halignment="CENTER">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="New_List_annuler" mnemonicParsing="false" text="Annuler" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                        <Button id="buttonColor" fx:id="New_List_annuler" mnemonicParsing="false" text="Annuler" GridPane.columnIndex="1" GridPane.halignment="CENTER">
                            <font>
                               <Font size="18.0" />
                            </font>

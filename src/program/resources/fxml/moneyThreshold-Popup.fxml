@@ -31,12 +31,12 @@
             <Label id="inputFailed" fx:id="inputFailed" alignment="CENTER" maxWidth="1.7976931348623157E308" text="failed" />
             <HBox fx:id="buttonsBox" alignment="CENTER" prefHeight="83.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="validate" mnemonicParsing="false" text="Valider">
+                  <Button id="buttonColor" fx:id="validate" mnemonicParsing="false" text="Valider">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="cancel" mnemonicParsing="false" text="Annuler">
+                  <Button id="buttonColor" fx:id="cancel" mnemonicParsing="false" text="Annuler">
                      <font>
                         <Font size="18.0" />
                      </font>

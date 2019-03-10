@@ -50,7 +50,7 @@
                         <Font size="24.0" />
                      </font>
                   </Text>
-                  <ChoiceBox fx:id="dateBox" prefWidth="150.0">
+                  <ChoiceBox id="buttonColor" fx:id="dateBox" prefWidth="150.0">
                      <HBox.margin>
                         <Insets top="5.0" />
                      </HBox.margin>
