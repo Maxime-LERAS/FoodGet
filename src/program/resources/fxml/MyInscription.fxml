@@ -125,7 +125,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button id="validateInscriptionButton" fx:id="validateInscriptionButton" alignment="CENTER" mnemonicParsing="false" text="Valider" textAlignment="CENTER">
+            <Button id="buttonColor" fx:id="validateInscriptionButton" alignment="CENTER" mnemonicParsing="false" text="Valider" textAlignment="CENTER">
                <font>
                   <Font size="19.0" />
                </font>

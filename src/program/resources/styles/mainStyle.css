@@ -60,3 +60,7 @@
 #PaneColor {
     -fx-background-color: #FFFAF2;
 }
+
+#deleteButton {
+    -fx-background-color: #ffbd4a;
+}
