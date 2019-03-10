@@ -35,6 +35,9 @@ public class MonCompteController {
     @FXML
     private Hyperlink modifier_email;
 
+    @FXML
+    private Hyperlink modifier_mdp;
+
 
     private Stage stage;
 
@@ -59,6 +62,7 @@ public class MonCompteController {
         Mon_Compte_Alertes.setOnAction(event -> openAlertes());
         Mon_Compte_Mon_Compte.setOnAction(event -> openMonCompte());
         modifier_email.setOnAction(event -> openEmailChange());
+        modifier_mdp.setOnAction(event -> openMDPChange());
         deconnect.setOnAction(event -> openConnection());
     }
 
@@ -86,6 +90,8 @@ public class MonCompteController {
     public void openEmailChange() {
         cr.openEmailChange();
     }
+
+    public void openMDPChange() { cr.openMDPChange();}
 
     public void openConnection() {
         cr.openConnection();

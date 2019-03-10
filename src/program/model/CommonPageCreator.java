@@ -177,67 +177,14 @@ public class CommonPageCreator {
         }
     }
 
-    public  void openSignUp() {
-        FXMLLoader loader = new FXMLLoader();
-
-        //create a controller
-        InscriptionController controller = new InscriptionController(this.stage);
-
-        //attach controller
-        loader.setController(controller);
-
-        //attach XML file
-        try {
-            Parent root = loader.load(getClass().getResourceAsStream(InscriptionView.XML_FILE));
-            root.getStylesheets().add(InscriptionView.CSS_FILE);
-            //initialize the controller
-
-            //create the view
-
-            this.stage.setScene(new Scene(root, InscriptionView.WIDTH, InscriptionView.HEIGHT));
-            controller.init();
-            this.stage.setTitle(InscriptionView.LABEL);
-
-            //show the view
-            this.stage.show();
-        } catch (IOException E) {
-            E.printStackTrace();
-        }
-    }
-
-    public  void openForgotPass() {
-        FXMLLoader loader = new FXMLLoader();
-
-        //create a controller
-        MotDePasseOublierController motDePasseOublierController = new MotDePasseOublierController(this.stage);
-
-        //attach controller
-        loader.setController(motDePasseOublierController);
-
-        //attach XML file
-        try {
-            Parent root = loader.load(getClass().getResourceAsStream(MDPOublierView.XML_FILE));
-            root.getStylesheets().add(MDPOublierView.CSS_FILE);
-
-            this.stage.setScene(new Scene(root, MDPOublierView.WIDTH, MDPOublierView.HEIGHT));
-            motDePasseOublierController.init();
-            this.stage.setTitle(MDPOublierView.LABEL);
-
-            //show the view
-            this.stage.show();
-        } catch (IOException E) {
-            E.printStackTrace();
-        }
-    }
-
     public void openEmailChange() {
         FXMLLoader loader = new FXMLLoader();
 
         //create a controller
-        NewMailController motDePasseOublierController = new NewMailController(this.stage, this.user);
+        NewMailController newMailController = new NewMailController(this.stage, this.user);
 
         //attach controller
-        loader.setController(motDePasseOublierController);
+        loader.setController(newMailController);
 
         //attach XML file
         try {
@@ -245,8 +192,33 @@ public class CommonPageCreator {
             root.getStylesheets().add(NewMailView.CSS_FILE);
 
             this.stage.setScene(new Scene(root, NewMailView.WIDTH, NewMailView.HEIGHT));
-            motDePasseOublierController.init();
+            newMailController.init();
             this.stage.setTitle(NewMailView.LABEL);
+
+            //show the view
+            this.stage.show();
+        } catch (IOException E) {
+            E.printStackTrace();
+        }
+    }
+
+    public void openMDPChange() {
+        FXMLLoader loader = new FXMLLoader();
+
+        //create a controller
+        NewMDPController newMDPController = new NewMDPController(this.stage, this.user);
+
+        //attach controller
+        loader.setController(newMDPController);
+
+        //attach XML file
+        try {
+            Parent root = loader.load(getClass().getResourceAsStream(NewMDPView.XML_FILE));
+            root.getStylesheets().add(NewMDPView.CSS_FILE);
+
+            this.stage.setScene(new Scene(root, NewMDPView.WIDTH, NewMDPView.HEIGHT));
+            newMDPController.init();
+            this.stage.setTitle(NewMDPView.LABEL);
 
             //show the view
             this.stage.show();
