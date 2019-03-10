@@ -2,9 +2,9 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -14,40 +14,22 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="consulterListe" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <top>
-      <StackPane prefHeight="31.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
-   </top>
-   <left>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-         <children>
-            <Hyperlink id="retour" fx:id="retour" text=" &lt; Retour " />
-         </children>
-      </VBox>
-   </left>
+<BorderPane fx:id="consulterListe" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <center>
-      <VBox prefHeight="321.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+      <VBox BorderPane.alignment="CENTER">
          <children>
+            <Label prefHeight="17.0" prefWidth="490.0" />
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <ImageView fitHeight="129.0" fitWidth="376.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="/program/resources/images/FoodJET.png" />
-                     </image>
-                  </ImageView>
+                  <Text id="totalListe" fx:id="totalListe" strokeType="OUTSIDE" strokeWidth="0.0" text="Total:  %nombre%€" textAlignment="CENTER" wrappingWidth="374.2060546875">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Text>
                </children>
             </HBox>
-            <Label prefHeight="17.0" prefWidth="490.0" />
-            <Text id="totalListe" fx:id="totalListe" strokeType="OUTSIDE" strokeWidth="0.0" text="Total:  %nombre%€" textAlignment="CENTER" wrappingWidth="374.2060546875">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Text>
             <Label />
-            <ListView id="detailListe" fx:id="detailListe" prefHeight="200.0" prefWidth="200.0" />
+            <ListView id="detailListe" fx:id="detailListe" prefHeight="350.0" prefWidth="500.0" />
          </children>
       </VBox>
    </center>
@@ -57,8 +39,41 @@
    <bottom>
       <StackPane prefHeight="39.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" text="Accueil" />
+            <Button fx:id="addDepense" mnemonicParsing="false" text="Ajouter une dépense">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
          </children>
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
+         </padding>
       </StackPane>
    </bottom>
+   <top>
+      <VBox fx:id="header" BorderPane.alignment="CENTER">
+         <children>
+            <ToolBar fx:id="toolbar">
+               <items>
+                  <Button id="Panier_Accueil" fx:id="Panier_Accueil" mnemonicParsing="false" text="Accueil" />
+                  <Button id="Panier_Stats" fx:id="Panier_Stats" mnemonicParsing="false" text="Stats" textAlignment="CENTER" />
+                  <Button id="Panier_Liste" fx:id="Panier_Liste" defaultButton="true" mnemonicParsing="false" text="Mes Listes" textAlignment="CENTER" />
+                  <Button id="Panier_Alertes" fx:id="Panier_Alertes" mnemonicParsing="false" text="Alertes" textAlignment="CENTER" />
+                  <Button id="Panier_MonCompte" fx:id="Panier_MonCompte" mnemonicParsing="false" text="Mon Compte" textAlignment="CENTER" />
+               </items>
+            </ToolBar>
+            <HBox fx:id="logoBox" alignment="CENTER">
+               <children>
+                  <ImageView fx:id="logo" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="/program/resources/images/FoodJET.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </top>
+   <left>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+   </left>
 </BorderPane>
