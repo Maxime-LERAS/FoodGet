@@ -19,7 +19,7 @@
          <children>
             <HBox id="supprList" fx:id="supprList" alignment="CENTER">
                <children>
-                  <Text fx:id="listNameField" strokeType="OUTSIDE" strokeWidth="0.0" text="Supprimer la liste XXXXXXXX" textAlignment="CENTER" wrappingWidth="150.0">
+                  <Text fx:id="listNameField" strokeType="OUTSIDE" strokeWidth="0.0" text="Supprimer la liste &quot;%listeToDelete%&quot; ?" textAlignment="CENTER" wrappingWidth="150.0">
                      <font>
                         <Font size="24.0" />
                      </font>
