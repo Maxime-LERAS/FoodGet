@@ -69,3 +69,7 @@
 #deleteButton {
     -fx-background-color: #ffbd4a;
 }
+
+.button {
+    -fx-cursor: hand;
+}
