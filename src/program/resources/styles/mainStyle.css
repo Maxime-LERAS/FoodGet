@@ -57,6 +57,11 @@
     -fx-background-color: #ffbd4a;
 }
 
+.list-cell:filled:hover #deleteButton {
+    -fx-background-color: red;
+    -fx-text-fill: white;
+}
+
 #PaneColor {
     -fx-background-color: #FFFAF2;
 }
