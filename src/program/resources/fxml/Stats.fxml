@@ -21,11 +21,11 @@
          <children>
             <ToolBar fx:id="stats_Toolbar">
                <items>
-                  <Button id="Mon_Compte_Stats" fx:id="stats_Acceuil" mnemonicParsing="false" text="Accueil" />
-                  <Button id="Mon_Compte_Stats" fx:id="stats_Stats" defaultButton="true" mnemonicParsing="false" text="Stats" />
-                  <Button id="Mon_Compte_Panier" fx:id="stats_Panier" mnemonicParsing="false" text="Mes Listes" />
-                  <Button id="Mon_Compte_Alertes" fx:id="stats_Alertes" mnemonicParsing="false" text="Alertes" />
-                  <Button id="Mon_Compte_Mon_Compte" fx:id="stats_Mon_Compte" mnemonicParsing="false" text="Mon Compte" />
+                  <Button id="PaneColor" fx:id="stats_Acceuil" mnemonicParsing="false" text="Accueil" />
+                  <Button id="buttonColor" fx:id="stats_Stats" defaultButton="true" mnemonicParsing="false" text="Stats" />
+                  <Button id="PaneColor" fx:id="stats_Panier" mnemonicParsing="false" text="Mes Listes" />
+                  <Button id="PaneColor" fx:id="stats_Alertes" mnemonicParsing="false" text="Alertes" />
+                  <Button id="PaneColor" fx:id="stats_Mon_Compte" mnemonicParsing="false" text="Mon Compte" />
                </items>
             </ToolBar>
             <HBox fx:id="logoBox" alignment="CENTER">

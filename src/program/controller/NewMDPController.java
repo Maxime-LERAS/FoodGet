@@ -17,6 +17,9 @@ public class NewMDPController {
     private PasswordField New_mdp_new_mdp;
 
     @FXML
+    private PasswordField New_mdp_new_mdp1;
+
+    @FXML
     private Hyperlink New_mdp_retour;
 
     @FXML
@@ -47,9 +50,16 @@ public class NewMDPController {
 
     public void checkForm() {
         String mdp_Field = New_mdp_new_mdp.getCharacters().toString();
-        if (mdp_Field.equals("")) {
+        String confirm_mdp_Field = New_mdp_new_mdp1.getCharacters().toString();
+
+        if (mdp_Field.equals("") || confirm_mdp_Field.equals("")) {
             showEmptyFieldError();
         }
+
+        else if (!mdp_Field.equals(confirm_mdp_Field) ) {
+            showNotSameMDP();
+        }
+
         else {
             this.user.setPassword(mdp_Field);
             cr.openMonCompte();
@@ -58,6 +68,13 @@ public class NewMDPController {
 
     private void showEmptyFieldError() {
         New_mdp_new_mdp.clear();
-        emptyFields.setText("Champ vide !");
+        New_mdp_new_mdp1.clear();
+        emptyFields.setText("Champ(s) vide(s) !");
+    }
+
+    private void showNotSameMDP() {
+        New_mdp_new_mdp.clear();
+        New_mdp_new_mdp1.clear();
+        emptyFields.setText("Les 2 mots de passes indiqués ne sont pas identiques !");
     }
 }
