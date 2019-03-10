@@ -39,3 +39,14 @@
 .list-view:focused {
     -fx-border-color: black;
 }
+#deleteButton {
+    -fx-text-fill: white;
+    -fx-background-color: red;
+    -fx-font-weight: bold;
+}
+
+#shareButton {
+    -fx-text-fill: white;
+    -fx-background-color: #0099ff;
+    -fx-font-weight: bold;
+}
