@@ -78,7 +78,7 @@ public class ListViewListCell extends ListCell<ShoppingListModel> {
         try {
             Parent root = loader.load(getClass().getResourceAsStream(DeleteConfirmView.XML_FILE));
             //initialize the controller
-            root.getStylesheets().add(DeleteConfirmView.CSS_FILE);
+            root.getStylesheets().add(DeleteConfirmView.getCssFile());
 
             Stage popup = new Stage();
 

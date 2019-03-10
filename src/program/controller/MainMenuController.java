@@ -122,7 +122,7 @@ public class MainMenuController extends  AddingProductController{
         try {
             Parent root = loader.load(getClass().getResourceAsStream(MoneyThresholdView.XML_FILE));
             //initialize the controller
-            root.getStylesheets().add(MoneyThresholdView.CSS_FILE);
+            root.getStylesheets().add(MoneyThresholdView.getCssFile());
 
             Stage popup = new Stage();
 

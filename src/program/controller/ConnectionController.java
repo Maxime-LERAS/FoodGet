@@ -44,6 +44,7 @@ public class ConnectionController {
     }
 
     public void init() {
+        usernameBox.requestFocus();
         connectionButton.setOnAction(event -> checkConnection());
         badCredentials.setText("");
         this.stage.getScene().setOnKeyPressed(keyEvent -> {
@@ -87,12 +88,12 @@ public class ConnectionController {
 
         try {
             Parent root = loader.load(getClass().getResourceAsStream(MainView.XML_FILE));
-            root.getStylesheets().add(MainView.CSS_FILE);
+            root.getStylesheets().add(MainView.getCssFile());
             //initialize the controller
             controller.init();
             //create the view
-            this.stage.setScene(new Scene(root, MainView.WIDTH, MainView.HEIGHT));
-            this.stage.setTitle(MainView.LABEL);
+            this.stage.setScene(new Scene(root, MainView.getWIDTH(), MainView.getHEIGHT()));
+            this.stage.setTitle(MainView.getLABEL());
 
             //show the view
             this.stage.show();
@@ -113,14 +114,14 @@ public class ConnectionController {
         //attach XML file
         try {
             Parent root = loader.load(getClass().getResourceAsStream(InscriptionView.XML_FILE));
-            root.getStylesheets().add(InscriptionView.CSS_FILE);
+            root.getStylesheets().add(InscriptionView.getCssFile());
             //initialize the controller
 
             //create the view
 
-            this.stage.setScene(new Scene(root, InscriptionView.WIDTH, InscriptionView.HEIGHT));
+            this.stage.setScene(new Scene(root, InscriptionView.getWIDTH(), InscriptionView.getHEIGHT()));
             controller.init();
-            this.stage.setTitle(InscriptionView.LABEL);
+            this.stage.setTitle(InscriptionView.getLABEL());
 
             //show the view
             this.stage.show();
@@ -141,11 +142,11 @@ public class ConnectionController {
         //attach XML file
         try {
             Parent root = loader.load(getClass().getResourceAsStream(MDPOublierView.XML_FILE));
-            root.getStylesheets().add(MDPOublierView.CSS_FILE);
+            root.getStylesheets().add(MDPOublierView.getCssFile());
 
-            this.stage.setScene(new Scene(root, MDPOublierView.WIDTH, MDPOublierView.HEIGHT));
+            this.stage.setScene(new Scene(root, MDPOublierView.getWIDTH(), MDPOublierView.getHEIGHT()));
             motDePasseOublierController.init();
-            this.stage.setTitle(MDPOublierView.LABEL);
+            this.stage.setTitle(MDPOublierView.getLABEL());
 
             //show the view
             this.stage.show();

@@ -70,14 +70,14 @@ public class MotDePasseOublierController {
         //attach XML file
         try{
             Parent root = loader.load(getClass().getResourceAsStream(ConnectionView.XML_FILE));
-            root.getStylesheets().add(ConnectionView.CSS_FILE);
+            root.getStylesheets().add(ConnectionView.getCssFile());
             //initialize the controller
 
             //create the view
 
-            this.stage.setScene(new Scene(root, ConnectionView.WIDTH, ConnectionView.HEIGHT));
+            this.stage.setScene(new Scene(root, ConnectionView.getWIDTH(), ConnectionView.getHEIGHT()));
             controller.init();
-            this.stage.setTitle(ConnectionView.LABEL);
+            this.stage.setTitle(ConnectionView.getLABEL());
 
             //show the view
             this.stage.show();

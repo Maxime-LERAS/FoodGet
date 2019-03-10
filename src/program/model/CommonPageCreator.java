@@ -36,12 +36,12 @@ public class CommonPageCreator {
 
         try {
             Parent root = loader.load(getClass().getResourceAsStream(StatsView.XML_FILE));
-            root.getStylesheets().add(StatsView.CSS_FILE);
+            root.getStylesheets().add(StatsView.getCssFile());
             //initialize the controller
             controller.init();
             //create the view
-            this.stage.setScene(new Scene(root, StatsView.WIDTH, StatsView.HEIGHT));
-            this.stage.setTitle(StatsView.LABEL);
+            this.stage.setScene(new Scene(root, StatsView.getWIDTH(), StatsView.getHEIGHT()));
+            this.stage.setTitle(StatsView.getLABEL());
 
             //show the view
             this.stage.show();
@@ -61,12 +61,12 @@ public class CommonPageCreator {
 
         try {
             Parent root = loader.load(getClass().getResourceAsStream(ListOfListsView.XML_FILE));
-            root.getStylesheets().add(ListOfListsView.CSS_FILE);
+            root.getStylesheets().add(ListOfListsView.getCssFile());
             //initialize the controller
             controller.init();
             //create the view
-            this.stage.setScene(new Scene(root, ListOfListsView.WIDTH, ListOfListsView.HEIGHT));
-            this.stage.setTitle(ListOfListsView.LABEL);
+            this.stage.setScene(new Scene(root, ListOfListsView.getWIDTH(), ListOfListsView.getHEIGHT()));
+            this.stage.setTitle(ListOfListsView.getLABEL());
 
             //show the view
             this.stage.show();
@@ -86,12 +86,12 @@ public class CommonPageCreator {
 
         try{
             Parent root = loader.load(getClass().getResourceAsStream(AlertesView.XML_FILE));
-            root.getStylesheets().add(AlertesView.CSS_FILE);
+            root.getStylesheets().add(AlertesView.getCssFile());
             //initialize the controller
             controller.init();
             //create the view
-            this.stage.setScene(new Scene(root, AlertesView.WIDTH, AlertesView.HEIGHT));
-            this.stage.setTitle(AlertesView.LABEL);
+            this.stage.setScene(new Scene(root, AlertesView.getWIDTH(), AlertesView.getHEIGHT()));
+            this.stage.setTitle(AlertesView.getLABEL());
             //show the view
             this.stage.show();
 
@@ -111,12 +111,12 @@ public class CommonPageCreator {
 
         try{
             Parent root = loader.load(getClass().getResourceAsStream(MonCompteView.XML_FILE));
-            root.getStylesheets().add(MonCompteView.CSS_FILE);
+            root.getStylesheets().add(MonCompteView.getCssFile());
             //initialize the controller
             controller.init();
             //create the view
-            this.stage.setScene(new Scene(root, MonCompteView.WIDTH, MonCompteView.HEIGHT));
-            this.stage.setTitle(MonCompteView.LABEL);
+            this.stage.setScene(new Scene(root, MonCompteView.getWIDTH(), MonCompteView.getHEIGHT()));
+            this.stage.setTitle(MonCompteView.getLABEL());
             //show the view
             this.stage.show();
 
@@ -136,12 +136,12 @@ public class CommonPageCreator {
 
         try {
             Parent root = loader.load(getClass().getResourceAsStream(MainView.XML_FILE));
-            root.getStylesheets().add(MainView.CSS_FILE);
+            root.getStylesheets().add(MainView.getCssFile());
             //initialize the controller
             controller.init();
             //create the view
-            this.stage.setScene(new Scene(root, MainView.WIDTH, MainView.HEIGHT));
-            this.stage.setTitle(MainView.LABEL);
+            this.stage.setScene(new Scene(root, MainView.getWIDTH(), MainView.getHEIGHT()));
+            this.stage.setTitle(MainView.getLABEL());
             //show the view
             this.stage.show();
         } catch (IOException e) {
@@ -161,14 +161,14 @@ public class CommonPageCreator {
         //attach XML file
         try{
             Parent root = loader.load(getClass().getResourceAsStream(ConnectionView.XML_FILE));
-            root.getStylesheets().add(ConnectionView.CSS_FILE);
+            root.getStylesheets().add(ConnectionView.getCssFile());
             //initialize the controller
 
             //create the view
 
-            this.stage.setScene(new Scene(root, ConnectionView.WIDTH, ConnectionView.HEIGHT));
+            this.stage.setScene(new Scene(root, ConnectionView.getWIDTH(), ConnectionView.getHEIGHT()));
             controller.init();
-            this.stage.setTitle(ConnectionView.LABEL);
+            this.stage.setTitle(ConnectionView.getLABEL());
 
             //show the view
             this.stage.show();
@@ -189,11 +189,11 @@ public class CommonPageCreator {
         //attach XML file
         try {
             Parent root = loader.load(getClass().getResourceAsStream(NewMailView.XML_FILE));
-            root.getStylesheets().add(NewMailView.CSS_FILE);
+            root.getStylesheets().add(NewMailView.getCssFile());
 
-            this.stage.setScene(new Scene(root, NewMailView.WIDTH, NewMailView.HEIGHT));
+            this.stage.setScene(new Scene(root, NewMailView.getWIDTH(), NewMailView.getHEIGHT()));
             newMailController.init();
-            this.stage.setTitle(NewMailView.LABEL);
+            this.stage.setTitle(NewMailView.getLABEL());
 
             //show the view
             this.stage.show();
@@ -214,11 +214,11 @@ public class CommonPageCreator {
         //attach XML file
         try {
             Parent root = loader.load(getClass().getResourceAsStream(NewMDPView.XML_FILE));
-            root.getStylesheets().add(NewMDPView.CSS_FILE);
+            root.getStylesheets().add(NewMDPView.getCssFile());
 
-            this.stage.setScene(new Scene(root, NewMDPView.WIDTH, NewMDPView.HEIGHT));
+            this.stage.setScene(new Scene(root, NewMDPView.getWIDTH(), NewMDPView.getHEIGHT()));
             newMDPController.init();
-            this.stage.setTitle(NewMDPView.LABEL);
+            this.stage.setTitle(NewMDPView.getLABEL());
 
             //show the view
             this.stage.show();

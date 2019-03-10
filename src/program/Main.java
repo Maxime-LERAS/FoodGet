@@ -13,7 +13,7 @@ import java.io.IOException;
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage){
         FXMLLoader loader = new FXMLLoader();
 
         //create a controller
@@ -25,14 +25,14 @@ public class Main extends Application {
         //attach XML file
         try{
             Parent root = loader.load(getClass().getResourceAsStream(ConnectionView.XML_FILE));
-            root.getStylesheets().add(ConnectionView.CSS_FILE);
+            root.getStylesheets().add(ConnectionView.getCssFile());
             //initialize the controller
 
             //create the view
 
-            primaryStage.setScene(new Scene(root, ConnectionView.WIDTH, ConnectionView.HEIGHT));
+            primaryStage.setScene(new Scene(root, ConnectionView.getWIDTH(), ConnectionView.getHEIGHT()));
             controller.init();
-            primaryStage.setTitle(ConnectionView.LABEL);
+            primaryStage.setTitle(ConnectionView.getLABEL());
 
             //show the view
             primaryStage.show();

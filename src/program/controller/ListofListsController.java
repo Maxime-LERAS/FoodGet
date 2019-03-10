@@ -114,7 +114,7 @@ public class ListofListsController {
         try {
             Parent root = loader.load(getClass().getResourceAsStream(CreateListView.XML_FILE));
             //initialize the controller
-            root.getStylesheets().add(CreateListView.CSS_FILE);
+            root.getStylesheets().add(CreateListView.getCssFile());
             Stage popup = new Stage();
 
             //create the view
@@ -152,12 +152,12 @@ public class ListofListsController {
         try {
             Parent root = loader.load(getClass().getResourceAsStream(ConsultListView.XML_FILE));
             //initialize the controller
-            root.getStylesheets().add(ConsultListView.CSS_FILE);
+            root.getStylesheets().add(ConsultListView.getCssFile());
 
             //create the view
-            this.stage.setScene(new Scene(root, ConsultListView.WIDTH, ConsultListView.HEIGHT));
+            this.stage.setScene(new Scene(root, ConsultListView.getWIDTH(), ConsultListView.getHEIGHT()));
             controller.init(shoppingList);
-            this.stage.setTitle(ConsultListView.LABEL);
+            this.stage.setTitle(ConsultListView.getLABEL());
             //show the view
             this.stage.show();
         } catch (

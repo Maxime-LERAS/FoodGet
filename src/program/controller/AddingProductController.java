@@ -32,7 +32,7 @@ public abstract class AddingProductController {
         try {
             Parent root = loader.load(getClass().getResourceAsStream(AddDepenseView.XML_FILE));
             //initialize the controller
-            root.getStylesheets().add(AddDepenseView.CSS_FILE);
+            root.getStylesheets().add(AddDepenseView.getCssFile());
 
             Stage popup = new Stage();
 
