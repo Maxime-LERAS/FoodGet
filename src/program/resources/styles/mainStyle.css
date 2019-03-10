@@ -50,3 +50,12 @@
     -fx-background-color: #0099ff;
     -fx-font-weight: bold;
 }
+
+#buttonColor {
+    -fx-text-fill: white;
+    -fx-background-color: black;
+}
+
+#PaneColor {
+    -fx-background-color: #FFFAF0;
+}
