@@ -1,18 +1,27 @@
 package program.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.stage.Stage;
+import program.model.AlertModel;
 import program.model.CommonPageCreator;
 import program.model.FoodGetUser;
+import program.model.ShoppingListModel;
+import program.views.ConsultListView;
 import program.views.CreateListView;
 
 import java.io.IOException;
 
 public class ListofListsController {
+
+    private ObservableList<ShoppingListModel> shoppingLists;
 
     @FXML
     private Button Panier_Stats;
@@ -29,6 +38,15 @@ public class ListofListsController {
     @FXML
     private Button Panier_Accueil;
 
+    @FXML
+    private ListView ListOfLists;
+
+    @FXML
+    private Label sharedListLabel;
+
+    @FXML
+    private Button createListPopup;
+
     private Stage stage;
 
     private FoodGetUser user;
@@ -37,10 +55,15 @@ public class ListofListsController {
     public ListofListsController(Stage stage, FoodGetUser user) {
         this.stage = stage;
         this.user = user;
-        cr = new CommonPageCreator(stage,user);
+        cr = new CommonPageCreator(stage, user);
+        shoppingLists = FXCollections.observableArrayList();
     }
 
     public void init() {
+        sharedListLabel.setText("");
+        shoppingLists.addAll(user.getShoppingLists());
+        ListOfLists.setItems(shoppingLists);
+        ListOfLists.setCellFactory(listview -> new ListViewListCell(this));
         Panier_Accueil.setFocusTraversable(false);
         Panier_Stats.setFocusTraversable(false);
         Panier_Accueil.setOnAction(event -> openMainMenu());
@@ -48,11 +71,13 @@ public class ListofListsController {
         Panier_Liste.setOnAction(event -> openLists());
         Panier_Alertes.setOnAction(event -> openAlertes());
         Panier_MonCompte.setOnAction(event -> openMonCompte());
+        createListPopup.setOnAction(event -> popupCreateList());
     }
 
     private void openMainMenu() {
         cr.openAccueil();
     }
+
     private void openLists() {
         cr.openLists();
     }
@@ -61,19 +86,23 @@ public class ListofListsController {
         cr.openStats();
     }
 
-    private void openAlertes(){
+    private void openAlertes() {
         cr.openALerts();
     }
-    private void openMonCompte(){
+
+    private void openMonCompte() {
         cr.openMonCompte();
     }
 
 
     public void addListToLists(String text) {
-
+        ShoppingListModel shoppingList = new ShoppingListModel(text);
+        shoppingLists.add(shoppingList);
+        user.addList(shoppingList);
+        user.addAlert(new AlertModel("Vous avez créé la liste \"" + shoppingList.getName() + "\" "));
     }
 
-    public void popupCreateList(){
+    public void popupCreateList() {
         FXMLLoader loader = new FXMLLoader();
 
         //create a controller
@@ -85,7 +114,7 @@ public class ListofListsController {
         try {
             Parent root = loader.load(getClass().getResourceAsStream(CreateListView.XML_FILE));
             //initialize the controller
-
+            root.getStylesheets().add(CreateListView.CSS_FILE);
             Stage popup = new Stage();
 
             //create the view
@@ -100,4 +129,40 @@ public class ListofListsController {
         }
     }
 
+    public void deleteList(ShoppingListModel shoppingList) {
+        this.shoppingLists.remove(shoppingList);
+        user.getShoppingLists().remove(shoppingList);
+        user.addAlert(new AlertModel("Vous avez supprimé la liste \"" + shoppingList.getName() + "\" ."));
+    }
+
+    public void shareList(ShoppingListModel shoppingList) {
+        sharedListLabel.setText("Vous venez de partager la liste \"" + shoppingList.getName() + "\" avec vos amis");
+        user.addAlert(new AlertModel("Vous avez partagé la liste \"" + shoppingList.getName() + "\" !"));
+    }
+
+    public void openContainedList(ShoppingListModel shoppingList) {
+        FXMLLoader loader = new FXMLLoader();
+
+        //create a controller
+        ConsultListController controller = new ConsultListController(this.stage, this.user);
+
+        //attach controller
+        loader.setController(controller);
+
+        try {
+            Parent root = loader.load(getClass().getResourceAsStream(ConsultListView.XML_FILE));
+            //initialize the controller
+            root.getStylesheets().add(ConsultListView.CSS_FILE);
+
+            //create the view
+            this.stage.setScene(new Scene(root, ConsultListView.WIDTH, ConsultListView.HEIGHT));
+            controller.init(shoppingList);
+            this.stage.setTitle(ConsultListView.LABEL);
+            //show the view
+            this.stage.show();
+        } catch (
+                IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

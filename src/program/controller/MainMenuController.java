@@ -19,6 +19,7 @@ import program.views.MoneyThresholdView;
 
 import java.io.IOException;
 import java.text.DecimalFormat;
+import java.util.Comparator;
 
 
 @SuppressWarnings("Duplicates")
@@ -66,12 +67,13 @@ public class MainMenuController {
 
     public void init() {
         products.addAll(user.getHistory());
+        products.sort(Comparator.comparing(ProductModel::getAddDate).reversed());
         historyList.setItems(products);
         historyList.setCellFactory(listview -> new ListViewProductCell());
         addDepense.setOnAction(event -> addDepenseMethod());
         DecimalFormat df = new DecimalFormat("#.##");
         spentMoney.setText(spentMoney.getText().replace("%username%", user.getUsername())
-                .replace("%money%", "" + df.format(user.getMoney())));
+                .replace("%money%", "" + df.format(user.getMoneyLastMonth())));
         main_menu_accueil.setOnAction(event -> openMainMenu());
         main_menu_stats.setOnAction(event -> openStats());
         main_menu_lists.setOnAction(event -> openLists());
@@ -82,22 +84,23 @@ public class MainMenuController {
 
 
     public void addProductToList(String productName, double productPrice) {
-        double moneyBefore = user.getMoney();
+        double moneyBefore = user.getMoneyLastMonth();
         ProductModel p = new ProductModel(productName, productPrice);
         user.addProduct(p);
-        products.add(p);
+        products.add(0,p);
         user.addAlert(new AlertModel("" + p.getProductName() + "" + " au prix de " + p.getProductPrice() + "€ ajouté !"));
 
         DecimalFormat df = new DecimalFormat("#.##");
-        if (user.getMoney() > user.getSpentMoneyThreshold()) {
+        if (user.getMoneyLastMonth() > user.getSpentMoneyThreshold()) {
             user.addAlert(new AlertModel(
-                    "Seuil de dépense dépassé de " + df.format(user.getMoney() - user.getSpentMoneyThreshold()) + "€"));
+                    "Seuil de dépense dépassé de " + df.format(user.getMoneyLastMonth() - user.getSpentMoneyThreshold()) + "€"));
         }
-        spentMoney.setText(spentMoney.getText().replace(df.format(moneyBefore), df.format(user.getMoney())));
+        spentMoney.setText(spentMoney.getText().replace(df.format(moneyBefore), df.format(user.getMoneyLastMonth())));
     }
 
     public void setThresholdForUser(double d) {
         user.setSpentMoneyThreshold(d);
+        user.addAlert(new AlertModel("Seuil de dépense fixé à "+d+"€"));
     }
 
     private void addDepenseMethod() {

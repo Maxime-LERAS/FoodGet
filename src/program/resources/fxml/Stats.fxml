@@ -2,8 +2,8 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.chart.StackedBarChart?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.ToolBar?>
@@ -15,11 +15,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="Stats" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="Stats" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <VBox fx:id="header" BorderPane.alignment="CENTER">
          <children>
-            <ToolBar fx:id="stats_Toolbar" prefHeight="40.0" prefWidth="200.0">
+            <ToolBar fx:id="stats_Toolbar">
                <items>
                   <Button id="Mon_Compte_Stats" fx:id="stats_Acceuil" mnemonicParsing="false" text="Accueil" />
                   <Button id="Mon_Compte_Stats" fx:id="stats_Stats" defaultButton="true" mnemonicParsing="false" text="Stats" />
@@ -57,14 +57,21 @@
                   </ChoiceBox>
                </children>
             </HBox>
-            <StackedBarChart fx:id="statsChart">
-               <xAxis>
-                  <CategoryAxis side="BOTTOM" />
-               </xAxis>
-               <yAxis>
-                  <NumberAxis side="LEFT" />
-               </yAxis>
-            </StackedBarChart>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <LineChart id="graphStats" fx:id="graphStats" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="500.0">
+                    <xAxis>
+                      <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" />
+                    </yAxis>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </LineChart>
+               </children>
+            </HBox>
          </children>
       </VBox>
    </center>

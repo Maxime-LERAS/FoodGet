@@ -62,6 +62,11 @@ public class AddDepenseController {
         } else {
             try {
                 double d = Double.valueOf(priceField.getText());
+                if (d < 0) {
+                    addFailed.setText("Entrez un prix positif");
+                    priceField.clear();
+                    return;
+                }
                 controller.addProductToList(productField.getText(), d);
                 thisstage.close();
             } catch (NumberFormatException e) {

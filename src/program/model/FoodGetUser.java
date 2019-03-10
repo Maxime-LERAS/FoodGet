@@ -1,7 +1,9 @@
 package program.model;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class FoodGetUser {
 
@@ -11,12 +13,15 @@ public class FoodGetUser {
     private double spentMoneyThreshold;
     private List<ProductModel> history;
     private List<AlertModel> alertHistory;
+    private List<ShoppingListModel> shoppingLists;
 
     public FoodGetUser(String username, String email, String password, List<ProductModel> history) {
         this.username = username;
         this.email = email;
         this.password = password;
         this.history = history;
+        this.alertHistory = new ArrayList<>();
+        this.shoppingLists = new ArrayList<>();
     }
 
     public FoodGetUser(String username, String email, String password) {
@@ -24,6 +29,8 @@ public class FoodGetUser {
         this.email = email;
         this.password = password;
         this.history = new ArrayList<>();
+        this.alertHistory = new ArrayList<>();
+        this.shoppingLists = new ArrayList<>();
     }
 
     public FoodGetUser(String username, String email, String password, List<ProductModel> history, List<AlertModel> alertHistory) {
@@ -32,6 +39,16 @@ public class FoodGetUser {
         this.password = password;
         this.history = history;
         this.alertHistory = alertHistory;
+        this.shoppingLists = new ArrayList<>();
+    }
+
+    public FoodGetUser(String username, String email, String password, List<ProductModel> history, List<AlertModel> alertHistory, List<ShoppingListModel> shoppingLists) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.history = history;
+        this.alertHistory = alertHistory;
+        this.shoppingLists = shoppingLists;
     }
 
     public void setSpentMoneyThreshold(double spentMoneyThreshold) {
@@ -54,6 +71,10 @@ public class FoodGetUser {
         return password;
     }
 
+    public List<ShoppingListModel> getShoppingLists() {
+        return shoppingLists;
+    }
+
     public void addProduct(ProductModel p) {
         this.history.add(p);
     }
@@ -65,6 +86,16 @@ public class FoodGetUser {
     public double getMoney() {
         double sum = 0;
         for (ProductModel p : history) {
+            sum += p.getProductPrice();
+        }
+        return sum;
+    }
+
+    public double getMoneyLastMonth() {
+        double sum = 0;
+        List<ProductModel> lastMonthProducts = history.stream()
+                .filter(productModel -> productModel.getAddDate().isAfter(LocalDateTime.now().minusMonths(1))).collect(Collectors.toList());
+        for (ProductModel p : lastMonthProducts) {
             sum += p.getProductPrice();
         }
         return sum;
@@ -90,7 +121,11 @@ public class FoodGetUser {
         return alertHistory;
     }
 
-    public void addAlert(AlertModel alert){
+    public void addAlert(AlertModel alert) {
         this.alertHistory.add(alert);
+    }
+
+    public void addList(ShoppingListModel shoppingList) {
+        this.shoppingLists.add(shoppingList);
     }
 }

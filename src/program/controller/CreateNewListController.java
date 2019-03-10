@@ -8,12 +8,11 @@ import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import program.model.CommonPageCreator;
 import program.model.FoodGetUser;
-import program.model.UsersDatabase;
 
 
 public class CreateNewListController {
     @FXML
-    private TextField listName;
+    private TextField listField;
 
     @FXML
     private Button New_List_valider;
@@ -38,6 +37,7 @@ public class CreateNewListController {
 
     public void init(Stage stage){
         this.thisstage=stage;
+        this.Echec.setText("");
         stage.getScene().setOnKeyPressed(keyEvent -> {
             if (keyEvent.getCode() == KeyCode.ENTER) {
                 validateMethod();
@@ -55,10 +55,10 @@ public class CreateNewListController {
     }
 
     private void validateMethod() {
-        if(listName.getText().equals("")){
+        if(listField.getText().equals("")){
             Echec.setText("Veuillez remplir le champ requis");
         }else {
-            controller.addListToLists(listName.getText());
+            controller.addListToLists(listField.getText());
             thisstage.close();
         }
     }

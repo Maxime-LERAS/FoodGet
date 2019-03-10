@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane prefHeight="214.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <VBox prefWidth="50.0" BorderPane.alignment="CENTER" />
+   </left>
+   <center>
+      <VBox alignment="CENTER" minWidth="-Infinity" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox id="supprList" fx:id="supprList" alignment="CENTER">
+               <children>
+                  <Text fx:id="listNameField" strokeType="OUTSIDE" strokeWidth="0.0" text="Supprimer la liste XXXXXXXX" textAlignment="CENTER" wrappingWidth="150.0">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox fx:id="buttonsHbox" alignment="CENTER">
+               <children>
+                  <GridPane fx:id="buttonsPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="83.0" prefWidth="414.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Button id="confirmDelete" fx:id="confirmDelete" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Oui" GridPane.halignment="CENTER">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                        <Button id="cancelDelete" fx:id="cancelDelete" mnemonicParsing="false" text="Non" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </GridPane>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+   <right>
+      <VBox prefWidth="50.0" BorderPane.alignment="CENTER" />
+   </right>
+   <top>
+      <HBox BorderPane.alignment="CENTER" />
+   </top>
+</BorderPane>
