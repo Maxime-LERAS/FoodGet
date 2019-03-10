@@ -2,21 +2,20 @@ package program.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.layout.GridPane;
 import program.model.ProductModel;
 
 import java.io.IOException;
-import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
-import java.util.Date;
 import java.util.Locale;
 
 public class ListViewProductCell extends ListCell<ProductModel> {
 
+    private final AddingProductController controller;
     @FXML
     private GridPane gridProduct;
 
@@ -29,9 +28,13 @@ public class ListViewProductCell extends ListCell<ProductModel> {
     @FXML
     private Label prodDate;
 
+    @FXML
+    private Button deleteProductButton;
 
-    public ListViewProductCell() {
+
+    public ListViewProductCell(AddingProductController controller) {
         super();
+        this.controller = controller;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/program/resources/fxml/product.fxml"));
         fxmlLoader.setController(this);
         try {
@@ -56,7 +59,12 @@ public class ListViewProductCell extends ListCell<ProductModel> {
         prodName.setText(product.getProductName());
         String pattern = "#.##";
         DecimalFormat df = new DecimalFormat(pattern);
-        prodPrice.setText(df.format(product.getProductPrice()) +"€");
-        prodDate.setText(product.getAddDate().format(DateTimeFormatter.ofPattern("d MMM yyyy 'à' HH:mm",Locale.FRANCE)));
+        prodPrice.setText(df.format(product.getProductPrice()) + "€");
+        prodDate.setText(product.getAddDate().format(DateTimeFormatter.ofPattern("d MMM yyyy 'à' HH:mm", Locale.FRANCE)));
+        deleteProductButton.setOnAction(event -> deleteProduct(product));
+    }
+
+    private void deleteProduct(ProductModel product) {
+        this.controller.deleteProduct(product);
     }
 }

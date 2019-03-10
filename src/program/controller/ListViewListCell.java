@@ -60,7 +60,7 @@ public class ListViewListCell extends ListCell<ShoppingListModel> {
     public void setContent(ShoppingListModel shoppingList) {
         listName.setText(shoppingList.getName());
         shareList.setText("Partager");
-        prodQuantity.setText(shoppingList.getContents().size() + " produits");
+        prodQuantity.setText(shoppingList.getContents().size() + " produits : "+shoppingList.getTotal()+"€");
         deleteListButton.setOnAction(event -> deleteListPopUp(shoppingList));
         shareList.setOnAction(event -> this.controller.shareList(shoppingList));
         gridLists.setOnMouseClicked(event -> this.controller.openContainedList(shoppingList));

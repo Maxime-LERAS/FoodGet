@@ -40,6 +40,7 @@
     -fx-border-color: black;
 }
 #deleteButton {
+    -fx-font: 12px "System";
     -fx-text-fill: white;
     -fx-background-color: red;
     -fx-font-weight: bold;

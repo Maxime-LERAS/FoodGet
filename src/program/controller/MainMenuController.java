@@ -65,7 +65,7 @@ public class MainMenuController extends  AddingProductController{
         products.addAll(user.getHistory());
         products.sort(Comparator.comparing(ProductModel::getAddDate).reversed());
         historyList.setItems(products);
-        historyList.setCellFactory(listview -> new ListViewProductCell());
+        historyList.setCellFactory(listview -> new ListViewProductCell(this));
         addDepense.setOnAction(event -> this.addDepenseMethod());
         DecimalFormat df = new DecimalFormat("#.##");
         spentMoney.setText(spentMoney.getText().replace("%username%", user.getUsername())
@@ -95,7 +95,14 @@ public class MainMenuController extends  AddingProductController{
         spentMoney.setText(spentMoney.getText().replace(df.format(moneyBefore), df.format(user.getMoneyLastMonth())));
     }
 
-
+    @Override
+    public void deleteProduct(ProductModel product) {
+        double moneyBefore = user.getMoneyLastMonth();
+        this.products.remove(product);
+        user.getHistory().remove(product);
+        DecimalFormat df = new DecimalFormat("#.##");
+        spentMoney.setText(spentMoney.getText().replace(df.format(moneyBefore), df.format(user.getMoneyLastMonth())));
+    }
 
 
     public void setThresholdForUser(double d) {

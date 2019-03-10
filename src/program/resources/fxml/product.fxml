@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane id="productExpanditure" fx:id="gridProduct" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="385.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane id="productExpanditure" fx:id="gridProduct" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="385.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="285.0" minWidth="10.0" prefWidth="143.0" />
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="302.0" minWidth="10.0" prefWidth="61.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="302.0" minWidth="10.0" prefWidth="181.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="240.0" minWidth="40.0" prefWidth="40.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="285.0" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="302.0" minWidth="82.0" prefWidth="82.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="302.0" minWidth="173.0" prefWidth="160.0" />
   </columnConstraints>
   <rowConstraints>
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Label fx:id="prodName" text="ProdName" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-      <Label fx:id="prodPrice" text="prodPrice" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-      <Label fx:id="prodDate" text="prodDate" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+      <Label fx:id="prodName" text="ProdName" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+      <Label fx:id="prodPrice" text="prodPrice" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+      <Label fx:id="prodDate" text="prodDate" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
+      <Button id="deleteButton" fx:id="deleteProductButton" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" prefHeight="23.0" prefWidth="25.0" text="X" GridPane.halignment="CENTER" />
    </children>
 </GridPane>

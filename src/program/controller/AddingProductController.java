@@ -49,4 +49,5 @@ public abstract class AddingProductController {
 
     public abstract void addProductToList(String productName, double productPrice);
 
+    public abstract void deleteProduct(ProductModel product);
 }

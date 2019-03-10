@@ -64,7 +64,7 @@ public class ConsultListController extends AddingProductController {
         products.addAll(shoppingList.getContents());
         Collections.reverse(products);
         detailListe.setItems(products);
-        detailListe.setCellFactory(listview -> new ListViewProductCell());
+        detailListe.setCellFactory(listview -> new ListViewProductCell(this));
         List_Accueil.setOnAction(event -> openMainMenu());
         List_Stats.setOnAction(event -> openStats());
         List_Liste.setOnAction(event -> openLists());
@@ -102,6 +102,17 @@ public class ConsultListController extends AddingProductController {
         ProductModel p = new ProductModel(productName, productPrice);
         shoppingList.addProduct(p);
         products.add(0, p);
+        listInfo.setText(listInfo.getText().replace(moneyBefore, "pour " + df.format(shoppingList.getTotal()))
+                .replace(productsQuantity, "Total: " + shoppingList.getContents().size()));
+    }
+
+    @Override
+    public void deleteProduct(ProductModel product) {
+        DecimalFormat df = new DecimalFormat("#.##");
+        String moneyBefore = "pour " + df.format(this.shoppingList.getTotal());
+        String productsQuantity = "Total: " + shoppingList.getContents().size();
+        this.products.remove(product);
+        this.shoppingList.getContents().remove(product);
         listInfo.setText(listInfo.getText().replace(moneyBefore, "pour " + df.format(shoppingList.getTotal()))
                 .replace(productsQuantity, "Total: " + shoppingList.getContents().size()));
     }

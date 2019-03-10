@@ -6,9 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import program.controller.ConnectionController;
-import program.controller.MainViewController;
 import program.views.ConnectionView;
-import program.views.MainView;
 
 import java.io.IOException;
 
