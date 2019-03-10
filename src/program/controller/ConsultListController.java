@@ -8,40 +8,44 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import program.model.*;
 import program.views.AddDepenseView;
 
 import java.io.IOException;
 import java.text.DecimalFormat;
+import java.util.Collections;
 
-public class ConsultListController {
 
-    private Stage stage;
-    private FoodGetUser user;
-    private CommonPageCreator cr;
-    private ObservableList<ProductModel> products;
+public class ConsultListController extends AddingProductController {
+
 
     @FXML
-    private Button Panier_Accueil;
+    private Button List_Accueil;
 
     @FXML
-    private Button Panier_Stats;
+    private Button List_Stats;
 
     @FXML
-    private Button Panier_Liste;
+    private Button List_Liste;
 
     @FXML
-    private Button Panier_Alertes;
+    private Button List_Alertes;
 
     @FXML
-    private Button Panier_MonCompte;
+    private Button List_MonCompte;
 
     @FXML
-    private Button addDepense;
+    private Button addProduct;
 
     @FXML
     private ListView detailListe;
+
+    @FXML
+    private Text listInfo;
+
+    private ShoppingListModel shoppingList;
 
 
     public ConsultListController(Stage stage, FoodGetUser user) {
@@ -52,18 +56,28 @@ public class ConsultListController {
     }
 
     public void init(ShoppingListModel shoppingList) {
-        Panier_Accueil.setOnAction(event -> openMainMenu());
-        Panier_Stats.setOnAction(event -> openStats());
-        Panier_Liste.setOnAction(event -> openLists());
-        Panier_Alertes.setOnAction(event -> openAlertes());
-        Panier_MonCompte.setOnAction(event -> openMonCompte());
-
+        this.shoppingList = shoppingList;
+        DecimalFormat df = new DecimalFormat("#.##");
+        listInfo.setText(listInfo.getText().replace("%list%", shoppingList.getName())
+                .replace("%produits%", "" + shoppingList.getContents().size())
+                .replace("%nombre%", "" + df.format(shoppingList.getTotal())));
+        products.addAll(shoppingList.getContents());
+        Collections.reverse(products);
+        detailListe.setItems(products);
+        detailListe.setCellFactory(listview -> new ListViewProductCell());
+        List_Accueil.setOnAction(event -> openMainMenu());
+        List_Stats.setOnAction(event -> openStats());
+        List_Liste.setOnAction(event -> openLists());
+        List_Alertes.setOnAction(event -> openAlertes());
+        List_MonCompte.setOnAction(event -> openMonCompte());
+        addProduct.setOnAction(event -> addDepenseMethod());
     }
 
 
     private void openMainMenu() {
         cr.openAccueil();
     }
+
     private void openLists() {
         cr.openLists();
     }
@@ -72,11 +86,23 @@ public class ConsultListController {
         cr.openStats();
     }
 
-    private void openAlertes(){
+    private void openAlertes() {
         cr.openALerts();
     }
-    private void openMonCompte(){
+
+    private void openMonCompte() {
         cr.openMonCompte();
     }
 
+    @Override
+    public void addProductToList(String productName, double productPrice) {
+        DecimalFormat df = new DecimalFormat("#.##");
+        String moneyBefore = "pour " + df.format(this.shoppingList.getTotal());
+        String productsQuantity = "Total: " + shoppingList.getContents().size();
+        ProductModel p = new ProductModel(productName, productPrice);
+        shoppingList.addProduct(p);
+        products.add(0, p);
+        listInfo.setText(listInfo.getText().replace(moneyBefore, "pour " + df.format(shoppingList.getTotal()))
+                .replace(productsQuantity, "Total: " + shoppingList.getContents().size()));
+    }
 }

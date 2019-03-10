@@ -11,7 +11,7 @@ import program.model.FoodGetUser;
 
 public class AddDepenseController {
 
-    private MainMenuController controller;
+    private AddingProductController controller;
 
     private FoodGetUser user;
 
@@ -33,7 +33,7 @@ public class AddDepenseController {
     private Button cancel;
 
 
-    public AddDepenseController(MainMenuController controller, FoodGetUser user) {
+    public AddDepenseController(AddingProductController controller, FoodGetUser user) {
         this.controller = controller;
         this.user = user;
     }

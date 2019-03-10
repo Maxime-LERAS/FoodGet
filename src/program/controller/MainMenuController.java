@@ -23,12 +23,8 @@ import java.util.Comparator;
 
 
 @SuppressWarnings("Duplicates")
-public class MainMenuController {
+public class MainMenuController extends  AddingProductController{
 
-    private Stage stage;
-    private FoodGetUser user;
-    private CommonPageCreator cr;
-    private ObservableList<ProductModel> products;
 
     @FXML
     private Text spentMoney;
@@ -70,7 +66,7 @@ public class MainMenuController {
         products.sort(Comparator.comparing(ProductModel::getAddDate).reversed());
         historyList.setItems(products);
         historyList.setCellFactory(listview -> new ListViewProductCell());
-        addDepense.setOnAction(event -> addDepenseMethod());
+        addDepense.setOnAction(event -> this.addDepenseMethod());
         DecimalFormat df = new DecimalFormat("#.##");
         spentMoney.setText(spentMoney.getText().replace("%username%", user.getUsername())
                 .replace("%money%", "" + df.format(user.getMoneyLastMonth())));
@@ -83,6 +79,7 @@ public class MainMenuController {
     }
 
 
+    @Override
     public void addProductToList(String productName, double productPrice) {
         double moneyBefore = user.getMoneyLastMonth();
         ProductModel p = new ProductModel(productName, productPrice);
@@ -98,36 +95,12 @@ public class MainMenuController {
         spentMoney.setText(spentMoney.getText().replace(df.format(moneyBefore), df.format(user.getMoneyLastMonth())));
     }
 
+
+
+
     public void setThresholdForUser(double d) {
         user.setSpentMoneyThreshold(d);
         user.addAlert(new AlertModel("Seuil de dépense fixé à "+d+"€"));
-    }
-
-    private void addDepenseMethod() {
-        FXMLLoader loader = new FXMLLoader();
-
-        //create a controller
-        AddDepenseController controller = new AddDepenseController(this, this.user);
-
-        //attach controller
-        loader.setController(controller);
-
-        try {
-            Parent root = loader.load(getClass().getResourceAsStream(AddDepenseView.XML_FILE));
-            //initialize the controller
-            root.getStylesheets().add(AddDepenseView.CSS_FILE);
-
-            Stage popup = new Stage();
-
-            //create the view
-            popup.setScene(new Scene(root, AddDepenseView.WIDTH, AddDepenseView.HEIGHT));
-            controller.init(popup);
-            popup.setTitle(AddDepenseView.LABEL);
-            //show the view
-            popup.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     private void setThreshold() {

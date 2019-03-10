@@ -26,4 +26,16 @@ public class ShoppingListModel {
     public List<ProductModel> getContents() {
         return contents;
     }
+
+    public double getTotal() {
+        double sum = 0;
+        for (ProductModel p : contents) {
+            sum += p.getProductPrice();
+        }
+        return sum;
+    }
+
+    public void addProduct(ProductModel p){
+        this.contents.add(p);
+    }
 }

@@ -22,7 +22,7 @@
             <Label prefHeight="17.0" prefWidth="490.0" />
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Text id="listInfo" fx:id="listInfo" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste %list% Total:  %produits% pour %nombre%€" textAlignment="CENTER" wrappingWidth="374.2060546875">
+                  <Text id="listInfo" fx:id="listInfo" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste %list% Total: %produits% produits pour %nombre%€" textAlignment="CENTER" wrappingWidth="423.2060546875">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -41,7 +41,7 @@
               </rowConstraints>
                <children>
                   <ListView id="detailListe" fx:id="detailListe" prefHeight="350.0" prefWidth="500.0" GridPane.columnIndex="1" />
-                  <Button fx:id="addProduct" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Ajouter une dépense" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                  <Button id="buttonColor" fx:id="addProduct" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Ajouter une dépense" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                      <font>
                         <Font size="18.0" />
                      </font>
