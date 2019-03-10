@@ -17,11 +17,11 @@
          <children>
             <ToolBar>
               <items>
-                  <Button id="Mon_Compte_Stats" fx:id="Mon_Compte_Accueil" mnemonicParsing="false" text="Accueil" />
-                <Button fx:id="Mon_Compte_Stats" mnemonicParsing="false" text="Stats" />
-                  <Button fx:id="Mon_Compte_Panier" mnemonicParsing="false" text="Mes Listes" />
-                  <Button fx:id="Mon_Compte_Alertes" mnemonicParsing="false" text="Alertes" />
-                  <Button fx:id="Mon_Compte_Mon_Compte" defaultButton="true" mnemonicParsing="false" text="Mon Compte" />
+                  <Button id="PaneColor" fx:id="Mon_Compte_Accueil" mnemonicParsing="false" text="Accueil" />
+                <Button id="PaneColor" fx:id="Mon_Compte_Stats" mnemonicParsing="false" text="Stats" />
+                  <Button id="PaneColor" fx:id="Mon_Compte_Panier" mnemonicParsing="false" text="Mes Listes" />
+                  <Button id="PaneColor" fx:id="Mon_Compte_Alertes" mnemonicParsing="false" text="Alertes" />
+                  <Button id="buttonColor" fx:id="Mon_Compte_Mon_Compte" defaultButton="true" mnemonicParsing="false" text="Mon Compte" />
               </items>
             </ToolBar>
             <HBox alignment="CENTER" prefHeight="167.0" prefWidth="724.0">

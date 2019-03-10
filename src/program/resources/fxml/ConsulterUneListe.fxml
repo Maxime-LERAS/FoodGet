@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="consulterListe" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane id="PaneColor" fx:id="consulterListe" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <VBox BorderPane.alignment="CENTER">
          <children>
@@ -59,11 +59,11 @@
          <children>
             <ToolBar fx:id="toolbar">
                <items>
-                  <Button id="List_Accueil" fx:id="List_Accueil" mnemonicParsing="false" text="Accueil" />
-                  <Button id="List_Stats" fx:id="List_Stats" mnemonicParsing="false" text="Stats" textAlignment="CENTER" />
-                  <Button id="List_Liste" fx:id="List_Liste" defaultButton="true" mnemonicParsing="false" text="Mes Listes" textAlignment="CENTER" />
-                  <Button id="List_Alertes" fx:id="List_Alertes" mnemonicParsing="false" text="Alertes" textAlignment="CENTER" />
-                  <Button id="List_MonCompte" fx:id="List_MonCompte" mnemonicParsing="false" text="Mon Compte" textAlignment="CENTER" />
+                  <Button id="PaneColor" fx:id="List_Accueil" mnemonicParsing="false" text="Accueil" />
+                  <Button id="PaneColor" fx:id="List_Stats" mnemonicParsing="false" text="Stats" textAlignment="CENTER" />
+                  <Button id="buttonColor" fx:id="List_Liste" defaultButton="true" mnemonicParsing="false" text="Mes Listes" textAlignment="CENTER" />
+                  <Button id="PaneColor" fx:id="List_Alertes" mnemonicParsing="false" text="Alertes" textAlignment="CENTER" />
+                  <Button id="PaneColor" fx:id="List_MonCompte" mnemonicParsing="false" text="Mon Compte" textAlignment="CENTER" />
                </items>
             </ToolBar>
             <HBox fx:id="logoBox" alignment="CENTER">

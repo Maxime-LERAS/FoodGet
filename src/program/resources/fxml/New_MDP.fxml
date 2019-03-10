@@ -36,7 +36,7 @@
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
    </right>
    <center>
-      <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+      <VBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
          <children>
             <VBox alignment="CENTER">
                <children>
@@ -46,6 +46,12 @@
                      </font>
                   </Text>
                   <PasswordField fx:id="New_mdp_new_mdp" promptText="nouveau mot de passe" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Confirmer le mot de passe" textAlignment="CENTER">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+                  <PasswordField fx:id="New_mdp_new_mdp1" promptText="retapez le nouveau mot de passe" />
                   <Label fx:id="emptyFields" text="Erreur Label">
                      <font>
                         <Font size="18.0" />
@@ -59,14 +65,20 @@
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Hyperlink id="New_mail_retour" fx:id="New_mdp_retour" text="Retour" textAlignment="CENTER" translateY="35.0">
+                  <Hyperlink id="New_mail_retour" fx:id="New_mdp_retour" text="Retour" textAlignment="CENTER">
                      <font>
                         <Font size="20.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
                   </Hyperlink>
                </children>
             </VBox>
          </children>
+         <BorderPane.margin>
+            <Insets top="20.0" />
+         </BorderPane.margin>
       </VBox>
    </center>
 </BorderPane>
