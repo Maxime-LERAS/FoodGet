@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
@@ -8,8 +7,10 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -21,44 +22,48 @@
             <Label prefHeight="17.0" prefWidth="490.0" />
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Text id="totalListe" fx:id="totalListe" strokeType="OUTSIDE" strokeWidth="0.0" text="Total:  %nombre%€" textAlignment="CENTER" wrappingWidth="374.2060546875">
+                  <Text id="listInfo" fx:id="listInfo" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste %list% Total:  %produits% pour %nombre%€" textAlignment="CENTER" wrappingWidth="374.2060546875">
                      <font>
-                        <Font name="System Bold" size="36.0" />
+                        <Font name="System Bold" size="15.0" />
                      </font>
                   </Text>
                </children>
             </HBox>
-            <Label />
-            <ListView id="detailListe" fx:id="detailListe" prefHeight="350.0" prefWidth="500.0" />
+            <GridPane alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="350.0" prefWidth="400.0">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="140.0" minWidth="10.0" prefWidth="84.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="465.0" minWidth="10.0" prefWidth="385.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="140.0" minWidth="10.0" prefWidth="84.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="-Infinity" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <ListView id="detailListe" fx:id="detailListe" prefHeight="350.0" prefWidth="500.0" GridPane.columnIndex="1" />
+                  <Button fx:id="addProduct" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Ajouter une dépense" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </GridPane>
          </children>
       </VBox>
    </center>
    <right>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
    </right>
-   <bottom>
-      <StackPane prefHeight="39.0" prefWidth="600.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button fx:id="addDepense" mnemonicParsing="false" text="Ajouter une dépense">
-               <font>
-                  <Font size="18.0" />
-               </font></Button>
-         </children>
-         <padding>
-            <Insets bottom="10.0" top="10.0" />
-         </padding>
-      </StackPane>
-   </bottom>
    <top>
       <VBox fx:id="header" BorderPane.alignment="CENTER">
          <children>
             <ToolBar fx:id="toolbar">
                <items>
-                  <Button id="Panier_Accueil" fx:id="Panier_Accueil" mnemonicParsing="false" text="Accueil" />
-                  <Button id="Panier_Stats" fx:id="Panier_Stats" mnemonicParsing="false" text="Stats" textAlignment="CENTER" />
-                  <Button id="Panier_Liste" fx:id="Panier_Liste" defaultButton="true" mnemonicParsing="false" text="Mes Listes" textAlignment="CENTER" />
-                  <Button id="Panier_Alertes" fx:id="Panier_Alertes" mnemonicParsing="false" text="Alertes" textAlignment="CENTER" />
-                  <Button id="Panier_MonCompte" fx:id="Panier_MonCompte" mnemonicParsing="false" text="Mon Compte" textAlignment="CENTER" />
+                  <Button id="List_Accueil" fx:id="List_Accueil" mnemonicParsing="false" text="Accueil" />
+                  <Button id="List_Stats" fx:id="List_Stats" mnemonicParsing="false" text="Stats" textAlignment="CENTER" />
+                  <Button id="List_Liste" fx:id="List_Liste" defaultButton="true" mnemonicParsing="false" text="Mes Listes" textAlignment="CENTER" />
+                  <Button id="List_Alertes" fx:id="List_Alertes" mnemonicParsing="false" text="Alertes" textAlignment="CENTER" />
+                  <Button id="List_MonCompte" fx:id="List_MonCompte" mnemonicParsing="false" text="Mon Compte" textAlignment="CENTER" />
                </items>
             </ToolBar>
             <HBox fx:id="logoBox" alignment="CENTER">
@@ -76,4 +81,7 @@
    <left>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
    </left>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="20.0" prefWidth="720.0" BorderPane.alignment="CENTER" />
+   </bottom>
 </BorderPane>

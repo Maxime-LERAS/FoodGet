@@ -12,14 +12,14 @@
 
 <BorderPane prefHeight="214.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <left>
-      <VBox prefWidth="50.0" BorderPane.alignment="CENTER" />
+      <VBox prefWidth="40.0" BorderPane.alignment="CENTER" />
    </left>
    <center>
       <VBox alignment="CENTER" minWidth="-Infinity" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <HBox id="supprList" fx:id="supprList" alignment="CENTER">
                <children>
-                  <Text fx:id="listNameField" strokeType="OUTSIDE" strokeWidth="0.0" text="Supprimer la liste &quot;%listeToDelete%&quot; ?" textAlignment="CENTER" wrappingWidth="150.0">
+                  <Text fx:id="listNameField" strokeType="OUTSIDE" strokeWidth="0.0" text="Supprimer la liste &quot;%listeToDelete%&quot; ?" textAlignment="CENTER" wrappingWidth="220.0">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -55,7 +55,7 @@
       </VBox>
    </center>
    <right>
-      <VBox prefWidth="50.0" BorderPane.alignment="CENTER" />
+      <VBox prefWidth="40.0" BorderPane.alignment="CENTER" />
    </right>
    <top>
       <HBox BorderPane.alignment="CENTER" />

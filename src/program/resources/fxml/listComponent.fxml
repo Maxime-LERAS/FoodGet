@@ -18,7 +18,7 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button id="deleteListButton" fx:id="deleteListButton" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" prefHeight="23.0" prefWidth="25.0" text="X" GridPane.halignment="CENTER" />
+      <Button id="deleteButton" fx:id="deleteListButton" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" prefHeight="23.0" prefWidth="25.0" text="X" GridPane.halignment="CENTER" />
       <Label id="listName" fx:id="listName" text="listName" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER">
          <font>
             <Font size="14.0" />
@@ -29,6 +29,6 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Button id="shareList" fx:id="shareList" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" prefHeight="23.0" text="share" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
+      <Button id="shareButton" fx:id="shareList" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" prefHeight="23.0" text="share" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
    </children>
 </GridPane>
