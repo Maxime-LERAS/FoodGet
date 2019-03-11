@@ -31,7 +31,7 @@ public class UsersDatabase {
             add(new ProductModel("Lait",3.25,feb24_2019));
             add(new ProductModel("Poulet", 14.82,march1_2019));
             add(new ProductModel("Riz", 1.99,march7_2019));
-            add(new ProductModel("Eau Minérale", 1.05,march8_2019));
+            add(new ProductModel("Eau", 1.05,march8_2019));
         }};
         List<AlertModel> brunoAlerts = new ArrayList<AlertModel>() {{
             add(new AlertModel("Bienvenue sur FoodGet, Bruno",feb24_2019));

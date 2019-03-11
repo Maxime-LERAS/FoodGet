@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+@SuppressWarnings("Duplicates")
 public class InscriptionController {
 
     @FXML
@@ -82,11 +83,26 @@ public class InscriptionController {
 
         if (usernameField.equals("") || passwordField.equals("") || checkPasswordField.equals("") || emailField.equals("") || firstNameField.equals("")) {
             showEmptyFieldError();
-        }
-        else {
+        } else if (!passwordField.equals(checkPasswordField)) {
+            showPassNotEquals();
+
+        } else if(!emailField.contains("@")) {
+            showEmailInvalid();
+        }else{
             addToDatabase();
             connectionPage();
         }
+    }
+
+    private void showEmailInvalid() {
+        newEmailBox.clear();
+        emptyFields.setText("Email invalide : abc@example.com");
+    }
+
+    private void showPassNotEquals() {
+        newPasswordBox.clear();
+        confirmationPWBox.clear();
+        emptyFields.setText("Les mots de passe ne correspondent pas !");
     }
 
     private void connectionPage() {
@@ -99,7 +115,7 @@ public class InscriptionController {
         loader.setController(controller);
 
         //attach XML file
-        try{
+        try {
             Parent root = loader.load(getClass().getResourceAsStream(ConnectionView.XML_FILE));
             root.getStylesheets().add(ConnectionView.getCssFile());
             //initialize the controller
@@ -112,7 +128,7 @@ public class InscriptionController {
 
             //show the view
             this.stage.show();
-        } catch (IOException E){
+        } catch (IOException E) {
             E.printStackTrace();
         }
     }
