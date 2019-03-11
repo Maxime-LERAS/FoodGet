@@ -64,7 +64,7 @@
                       <CategoryAxis side="BOTTOM" />
                     </xAxis>
                     <yAxis>
-                      <NumberAxis side="LEFT" />
+                      <NumberAxis label="€" side="LEFT" />
                     </yAxis>
                      <HBox.margin>
                         <Insets />

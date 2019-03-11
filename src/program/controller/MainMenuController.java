@@ -23,7 +23,7 @@ import java.util.Comparator;
 
 
 @SuppressWarnings("Duplicates")
-public class MainMenuController extends  AddingProductController{
+public class MainMenuController extends AddingProductController {
 
 
     @FXML
@@ -69,7 +69,8 @@ public class MainMenuController extends  AddingProductController{
         addDepense.setOnAction(event -> this.addDepenseMethod());
         DecimalFormat df = new DecimalFormat("#.##");
         spentMoney.setText(spentMoney.getText().replace("%username%", user.getUsername())
-                .replace("%money%", "" + df.format(user.getMoneyLastMonth())));
+                .replace("%money%", "" + df.format(user.getMoneyLastMonth()))
+                .replace("%max%", df.format(user.getSpentMoneyThreshold())));
         main_menu_accueil.setOnAction(event -> openMainMenu());
         main_menu_stats.setOnAction(event -> openStats());
         main_menu_lists.setOnAction(event -> openLists());
@@ -84,7 +85,7 @@ public class MainMenuController extends  AddingProductController{
         double moneyBefore = user.getMoneyLastMonth();
         ProductModel p = new ProductModel(productName, productPrice);
         user.addProduct(p);
-        products.add(0,p);
+        products.add(0, p);
         user.addAlert(new AlertModel("" + p.getProductName() + "" + " au prix de " + p.getProductPrice() + "€ ajouté !"));
 
         DecimalFormat df = new DecimalFormat("#.##");
@@ -92,7 +93,7 @@ public class MainMenuController extends  AddingProductController{
             user.addAlert(new AlertModel(
                     "Seuil de dépense dépassé de " + df.format(user.getMoneyLastMonth() - user.getSpentMoneyThreshold()) + "€"));
         }
-        spentMoney.setText(spentMoney.getText().replace(df.format(moneyBefore), df.format(user.getMoneyLastMonth())));
+        spentMoney.setText(spentMoney.getText().replace("dépensé " + df.format(moneyBefore), "dépensé " + df.format(user.getMoneyLastMonth())));
     }
 
     @Override
@@ -106,8 +107,11 @@ public class MainMenuController extends  AddingProductController{
 
 
     public void setThresholdForUser(double d) {
+        DecimalFormat df = new DecimalFormat("#.##");
+        String thresholdbefore = "sur " + df.format(user.getSpentMoneyThreshold());
         user.setSpentMoneyThreshold(d);
-        user.addAlert(new AlertModel("Seuil de dépense fixé à "+d+"€"));
+        user.addAlert(new AlertModel("Seuil de dépense fixé à " + d + "€"));
+        spentMoney.setText(spentMoney.getText().replace(thresholdbefore, "sur " + df.format(user.getSpentMoneyThreshold())));
     }
 
     private void setThreshold() {

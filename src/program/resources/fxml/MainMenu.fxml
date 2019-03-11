@@ -45,7 +45,7 @@
          <children>
             <HBox fx:id="spentBox" alignment="CENTER">
                <children>
-                  <Text fx:id="spentMoney" strokeType="OUTSIDE" strokeWidth="0.0" text="Bonjour %username%, vous avez dépensé %money%€ ce mois-ci." wrappingWidth="463.0">
+                  <Text fx:id="spentMoney" strokeType="OUTSIDE" strokeWidth="0.0" text="Bonjour %username%, vous avez dépensé %money%€ ce mois-ci sur %max%€." textAlignment="CENTER" wrappingWidth="563.0">
                      <font>
                         <Font size="16.0" />
                      </font>
